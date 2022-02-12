@@ -1,0 +1,26 @@
+At the start of their daily practice, the user sees a list of all the pieces (and technical
+exercises) that are due for today. These will be listed in a logical order and they can either tap
+whichever piece they want to start with, or click the big old 'start practice' button.
+
+When the user taps a piece, they are shown the first chunk for that piece of the day. While these
+are generally oredred by due date, things do get a bit more complicated.
+
+As long as there are new measures to learn, there must at least be some new measures every day. How
+many wholly depends on the amount of practice the user plans on doing on a daily basis. I think two
+sessions a day of practicing a new piece is realistic, at least until the user is able to play every
+measure with the metronome. After this point, the intensity with which the piece is practiced
+rapidly decreases. It also gets spread out more naturally.
+
+Repetition of material the user is getting from a tempo of null to their lower threshold is the
+most important. The user is still struggling with the measures within this chunk, so reinforcing it
+is key to getting it in their fingers.
+
+Then comes repetition of material the user has played successfully with a metronome. The more
+familiar the measures within the chunk are, the lower the priority.
+
+There must be a balance between learning new things and reinforcing old things. Once a new piece is
+started, at least some effort must be made to learn some new things every day. At the same time,
+learning a new piece should never be at the cost of mastery towards the things you're currently
+learning.
+
+

@@ -1,0 +1,11 @@
+For technical exercises, it's important to learn from the user how long they take to complete a
+technical exercise, because the amount of technical exercises done in a day is linked to the time
+they have designated to practicing them.
+
+Thus, for each technical exercise keep track of the length of each practice session. We want to
+create an average for the first practice, numbers 2-5, numbers 5-10 and 11+. Each exercise will
+have an array of ints linked to it, which represents how long each session took. When updating this
+list, we also immediately update the central array which corresponds with this practice session's n.
+It will be very easy to get the average of this central array, thus making it easy to make a good
+assumption about the work the user is able to get done in the time they have reserved for technical
+exercises.

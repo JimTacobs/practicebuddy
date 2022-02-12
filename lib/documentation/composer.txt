@@ -1,0 +1,16 @@
+When creating a composer, the user is asked to provide as much information about them as possible.
+For the time being, I will add a load of composers already.
+
+Of a composer, I want to know the following details:
+- First name(s)
+- Last name
+- Date of birth
+- Date of death (if applicable)
+
+
+I will upload a bunch of assets, which I will attempt to keep small, to show the face of the
+composer on different places. Make the image small (height + width) to not let the app get huge.
+
+A composer will also have works. Each work will be assigned to an instrument, so the app can be used
+for every instrument, not just the piano.
+

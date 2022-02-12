@@ -1,0 +1,45 @@
+When tapping the CTA to create a new piece, the user first sees a dialog, asking them whether they
+want to learn an entirely new piece, or whether they want to add measures from a piece they are
+currently learning. I.e. when the user decided to first learn the coda.
+
+When creating a piece, the user is asked to input certain information about the piece:
+- The composer.
+- The name of the book.
+- The number of the piece.
+- The length of the piece.
+- The desired tempo.
+- Any repetitions.
+- Any pageturns.
+
+The composer.
+There will be a table of composers, from which the user will be able to select theirs. If the
+composer they want to add is not yet there, it will be added to the table. I must think about this,
+as it will be very easy to get duplicates in your database by people being unknowing about how
+things work.
+When people add a composer that is not there, they are asked to provide as much information about
+the composer as they can.
+
+The name of the book.
+Once the composer is known, the name of the book can also be fetched from the Firestore. There will
+just be one fetch the moment the user chooses their composer, instead of making a new request
+every time the user changes their input.
+When people add a new book, they are asked to provide as much information about it as they can.
+The name, opus number, whether there are more volumes and, if so, which volume this is, date
+published, number of pieces. They are allowed to continue just providing the name, but I really want
+as much information as possible.
+
+The number of the piece.
+Same as with the book, once the book is selected, we already know the pieces within. So we allow the
+user to pick one that has been practiced by someone else before them. This is especially great, as
+it allows users to add a piece with minimal input; the length and repetitions will be prefilled.
+If their piece is not there, they will the page as usual. Any information provided will be available
+to other users.
+
+After providing core information about the piece, the user is asked about personal settings for
+this piece. While these can be changed at any time, it should be where most of the settings are set.
+
+At this point, the user can also choose whether they want to practice the whole piece or just a
+part. This setting is useful for first isolating the most difficult part. If they choose to practice
+just a part, they get to give a nickname to this part.
+
+

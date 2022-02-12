@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "957100042641",
+    "project_id": "practicebuddy-b59e8",
+    "storage_bucket": "practicebuddy-b59e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957100042641:android:bb410225e7e4471247d230",
+        "android_client_info": {
+          "package_name": "com.jimtacobs.practicebuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957100042641-4l3pdjqul3mfgs011f3rtc3em10c4qq6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jimtacobs.practicebuddy",
+            "certificate_hash": "865482485c9a0894f5539bc7a86ef8052d6c7341"
+          }
+        },
+        {
+          "client_id": "957100042641-8liar7s2n34b8o05b7io45hb9bbe2693.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0YItYIXk8KrZPxyDE20Zc-4jYSGWj5lw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957100042641-8liar7s2n34b8o05b7io45hb9bbe2693.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "957100042641-fbq178o7dcs17sril78cqhg3mphsbejo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jimtacobs.practicebuddy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

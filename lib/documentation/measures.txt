@@ -1,0 +1,40 @@
+In the database, a piece is just a collection of measures. Chunks don't exist in the database, but
+it will return chunks to the front-end so it can show to the user what must be practiced that day.
+
+So, a chunk consists of ...
+
+The front-end will get a package of chunks grouped by piece, so it's not required to cross-reference
+the piece to which the chunk belongs inside the chunk itself.
+
+The chunk is received by the front-end, and the same chunk is written back to the firestore. Thus,
+each user will have in the database a list of chunks at any time. When one is written, it means the
+chunk is completed for that day. This will trigger an action that will update the measures that were
+within the chunk with relevant information like tempo and played time. A measure will also have
+assigned a new due date at this point, which also depends on how well the chunk was practiced and
+what the overall status of the measure is.
+
+I don't think it's particularly important or useful to keep track of how long a measure was
+practiced. It is interesting to know how often it was practiced, which is why there is a
+due date and a practice dates on a measure. The due date is when it should next be practiced, and
+the practice dates is a list of dates on which the user practiced this measure. This way, you can
+see at the end which measures gave you trouble and how often you practiced them to nail them.
+
+To describe the progress of a user within a measure, there is first of all the tempo. If the
+tempo is null, we know they are not able to play it confidently yet, so they must practice it daily.
+But beyond that, a user who can play it at 30 should still play it at least every 2 days I think,
+while a user who has been playing it for a month, can suffice with every 3 or 4 days. Perhaps we
+can look at the length of the practiceDates. When it's less than 10, every other day. When it's
+between 10 and 20, every three days and when it's over 20, every 4 days. Still, a user must be
+able to let a measure come back sooner. While this is a good base set of rules, they should be
+able to override it with feedback from their previous practice session.
+
+The logic above is overridden by the average quality of their practice of the measure. The user is
+asked to rate their practice of the chunk every time, just a quick 5 options. These correspond to
+the ints 1 through 5. This number affects two things:
+- When the user practices the measure again. I.e. if they are very confident after practicing 5
+times, they would normally still repeat every day. However, the average of 5 would increase this
+interval by 2 (5 - the median, 3).
+- The speed at which the metronome tempo increases. If a user is at a 5 for a measure, they are
+offered to increase the tempo by more than what it would be by default. For example, if the default
+way to increase the tempo is by 2 steps of 5 BPM once every 3 days, with a 5 this would increase to
+4 steps of 5 BPM.
