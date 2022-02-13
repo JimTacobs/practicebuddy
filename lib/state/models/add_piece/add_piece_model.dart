@@ -10,8 +10,8 @@ class AddPiece with _$AddPiece {
   const factory AddPiece({
     required TextEditingController composerLastNameController,
     required TextEditingController composerFirstNameController,
-    required TextEditingController composerDateOfBirthController,
-    required TextEditingController composerDateOfDeathController,
+    DateTime? dateOfBirth,
+    DateTime? dateOfDeath,
     @Default([]) List<Composer> composers,
     @Default([]) List<Composer> filteredComposers,
     Composer? selectedComposer,

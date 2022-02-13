@@ -24,7 +24,8 @@ class _$ComposerTearOff {
       required DateTime dateOfBirth,
       required DateTime? dateOfDeath,
       required dynamic works,
-      required List<String> numberingSystem}) {
+      required List<String> numberingSystem,
+      String? id}) {
     return _Composer(
       firstNames: firstNames,
       lastName: lastName,
@@ -32,6 +33,7 @@ class _$ComposerTearOff {
       dateOfDeath: dateOfDeath,
       works: works,
       numberingSystem: numberingSystem,
+      id: id,
     );
   }
 }
@@ -49,6 +51,7 @@ mixin _$Composer {
   /// Temporary dynamic, must be a list of works.
   dynamic get works => throw _privateConstructorUsedError;
   List<String> get numberingSystem => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ComposerCopyWith<Composer> get copyWith =>
@@ -65,7 +68,8 @@ abstract class $ComposerCopyWith<$Res> {
       DateTime dateOfBirth,
       DateTime? dateOfDeath,
       dynamic works,
-      List<String> numberingSystem});
+      List<String> numberingSystem,
+      String? id});
 }
 
 /// @nodoc
@@ -84,6 +88,7 @@ class _$ComposerCopyWithImpl<$Res> implements $ComposerCopyWith<$Res> {
     Object? dateOfDeath = freezed,
     Object? works = freezed,
     Object? numberingSystem = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
       firstNames: firstNames == freezed
@@ -110,6 +115,10 @@ class _$ComposerCopyWithImpl<$Res> implements $ComposerCopyWith<$Res> {
           ? _value.numberingSystem
           : numberingSystem // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -125,7 +134,8 @@ abstract class _$ComposerCopyWith<$Res> implements $ComposerCopyWith<$Res> {
       DateTime dateOfBirth,
       DateTime? dateOfDeath,
       dynamic works,
-      List<String> numberingSystem});
+      List<String> numberingSystem,
+      String? id});
 }
 
 /// @nodoc
@@ -145,6 +155,7 @@ class __$ComposerCopyWithImpl<$Res> extends _$ComposerCopyWithImpl<$Res>
     Object? dateOfDeath = freezed,
     Object? works = freezed,
     Object? numberingSystem = freezed,
+    Object? id = freezed,
   }) {
     return _then(_Composer(
       firstNames: firstNames == freezed
@@ -171,6 +182,10 @@ class __$ComposerCopyWithImpl<$Res> extends _$ComposerCopyWithImpl<$Res>
           ? _value.numberingSystem
           : numberingSystem // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -184,7 +199,8 @@ class _$_Composer implements _Composer {
       required this.dateOfBirth,
       required this.dateOfDeath,
       required this.works,
-      required this.numberingSystem});
+      required this.numberingSystem,
+      this.id});
 
   @override
   final String firstNames;
@@ -200,10 +216,12 @@ class _$_Composer implements _Composer {
   final dynamic works;
   @override
   final List<String> numberingSystem;
+  @override
+  final String? id;
 
   @override
   String toString() {
-    return 'Composer(firstNames: $firstNames, lastName: $lastName, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, works: $works, numberingSystem: $numberingSystem)';
+    return 'Composer(firstNames: $firstNames, lastName: $lastName, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, works: $works, numberingSystem: $numberingSystem, id: $id)';
   }
 
   @override
@@ -220,7 +238,8 @@ class _$_Composer implements _Composer {
                 .equals(other.dateOfDeath, dateOfDeath) &&
             const DeepCollectionEquality().equals(other.works, works) &&
             const DeepCollectionEquality()
-                .equals(other.numberingSystem, numberingSystem));
+                .equals(other.numberingSystem, numberingSystem) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
@@ -231,7 +250,8 @@ class _$_Composer implements _Composer {
       const DeepCollectionEquality().hash(dateOfBirth),
       const DeepCollectionEquality().hash(dateOfDeath),
       const DeepCollectionEquality().hash(works),
-      const DeepCollectionEquality().hash(numberingSystem));
+      const DeepCollectionEquality().hash(numberingSystem),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -246,7 +266,8 @@ abstract class _Composer implements Composer {
       required DateTime dateOfBirth,
       required DateTime? dateOfDeath,
       required dynamic works,
-      required List<String> numberingSystem}) = _$_Composer;
+      required List<String> numberingSystem,
+      String? id}) = _$_Composer;
 
   @override
   String get firstNames;
@@ -262,6 +283,8 @@ abstract class _Composer implements Composer {
   dynamic get works;
   @override
   List<String> get numberingSystem;
+  @override
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$ComposerCopyWith<_Composer> get copyWith =>

@@ -13,5 +13,6 @@ class Composer with _$Composer {
     /// Temporary dynamic, must be a list of works.
     required dynamic works,
     required List<String> numberingSystem,
+    String? id,
   }) = _Composer;
 }

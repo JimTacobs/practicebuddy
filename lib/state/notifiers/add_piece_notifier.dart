@@ -9,12 +9,11 @@ import '../state_models.dart';
 class AddPieceNotifier extends StateNotifier<AddPiece> {
   AddPieceNotifier()
       : super(AddPiece(
-          composerDateOfBirthController: TextEditingController(),
-          composerDateOfDeathController: TextEditingController(),
           composerFirstNameController: TextEditingController(),
           composerLastNameController: TextEditingController(),
         ));
 
+  /// API calls
   Future<void> getComposers() async {
     CollectionReference composersCollection =
         FirebaseFirestore.instance.collection('composerNames');
@@ -23,7 +22,7 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
     await composersCollection.get().then((QuerySnapshot snapshot) {
       for (final doc in snapshot.docs) {
         final _doc = mapDoc(doc);
-        composersList.add(mapComposer(_doc));
+        composersList.add(mapComposer(_doc, doc.id));
       }
     });
 
@@ -33,9 +32,49 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
     );
   }
 
+  /// Composer first and last name selection.
+  void addDummyComposer(String lastName) {
+    state.composers
+        .removeWhere((composer) => composer.lastName.contains(' - Add new'));
+    state.composers.insert(
+      0,
+      Composer(
+        lastName: '$lastName - Add new',
+        works: [],
+        numberingSystem: [],
+        dateOfDeath: null,
+        dateOfBirth: DateTime.now(),
+        firstNames: '',
+      ),
+    );
+  }
+
   void selectComposer(Composer composer) {
+    if (composer.lastName.contains('- Add new')) {
+      state = state.copyWith();
+      return;
+    }
     state = state.copyWith(
       selectedComposer: composer,
+    );
+  }
+
+  void unselectComposer() {
+    state = state.copyWith(
+      selectedComposer: null,
+    );
+  }
+
+  /// Composer set dates
+  void setBirthDate(DateTime date) {
+    state = state.copyWith(
+      dateOfBirth: date,
+    );
+  }
+
+  void setDeathDate(DateTime date) {
+    state = state.copyWith(
+      dateOfBirth: date,
     );
   }
 }
