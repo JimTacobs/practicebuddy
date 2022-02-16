@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "957100042641-4l3pdjqul3mfgs011f3rtc3em10c4qq6.apps.googleusercontent.com",
+          "client_id": "957100042641-33rvne6ludqvl9fog0qj6dggmn3dion4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.jimtacobs.practicebuddy",
-            "certificate_hash": "865482485c9a0894f5539bc7a86ef8052d6c7341"
+            "certificate_hash": "b3593ca760afb467a73a52da1f81b5c9cdc715e6"
           }
         },
         {

@@ -21,15 +21,29 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
     final composersList = <Composer>[];
     await composersCollection.get().then((QuerySnapshot snapshot) {
       for (final doc in snapshot.docs) {
-        final _doc = mapDoc(doc);
+        final _doc = mapQueryDoc(doc);
         composersList.add(mapComposer(_doc, doc.id));
       }
     });
 
     state = state.copyWith(
       composers: composersList,
-      filteredComposers: composersList,
     );
+  }
+
+  Future<void> getComposerWorks(String id) async {
+    CollectionReference composersCollection =
+        FirebaseFirestore.instance.collection('composers');
+
+    await composersCollection.doc(id).get().then((DocumentSnapshot snapshot) {
+      final _doc = mapDoc(snapshot);
+
+      /// Create mapWorks function
+      state = state.copyWith(
+          selectedComposer: state.selectedComposer!.copyWith(
+        works: mapWorks(_doc['works'] as List<Map<String, Object?>>),
+      ));
+    });
   }
 
   /// Composer first and last name selection.

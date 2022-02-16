@@ -20,14 +20,16 @@ class _$WorkTearOff {
 
   _Work call(
       {required String name,
-      int? opusNo,
+      List<WorkNumber> opusNo = const [],
       required List<Piece> pieces,
-      required Instrument instrument}) {
+      required Instrument instrument,
+      String? id}) {
     return _Work(
       name: name,
       opusNo: opusNo,
       pieces: pieces,
       instrument: instrument,
+      id: id,
     );
   }
 }
@@ -38,13 +40,14 @@ const $Work = _$WorkTearOff();
 /// @nodoc
 mixin _$Work {
   String get name => throw _privateConstructorUsedError;
-  int? get opusNo => throw _privateConstructorUsedError;
+  List<WorkNumber> get opusNo => throw _privateConstructorUsedError;
 
   /// All the pieces that the work consists of
   List<Piece> get pieces => throw _privateConstructorUsedError;
 
   /// The instrument for which the work is written.
   Instrument get instrument => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WorkCopyWith<Work> get copyWith => throw _privateConstructorUsedError;
@@ -55,7 +58,11 @@ abstract class $WorkCopyWith<$Res> {
   factory $WorkCopyWith(Work value, $Res Function(Work) then) =
       _$WorkCopyWithImpl<$Res>;
   $Res call(
-      {String name, int? opusNo, List<Piece> pieces, Instrument instrument});
+      {String name,
+      List<WorkNumber> opusNo,
+      List<Piece> pieces,
+      Instrument instrument,
+      String? id});
 }
 
 /// @nodoc
@@ -72,6 +79,7 @@ class _$WorkCopyWithImpl<$Res> implements $WorkCopyWith<$Res> {
     Object? opusNo = freezed,
     Object? pieces = freezed,
     Object? instrument = freezed,
+    Object? id = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -81,7 +89,7 @@ class _$WorkCopyWithImpl<$Res> implements $WorkCopyWith<$Res> {
       opusNo: opusNo == freezed
           ? _value.opusNo
           : opusNo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as List<WorkNumber>,
       pieces: pieces == freezed
           ? _value.pieces
           : pieces // ignore: cast_nullable_to_non_nullable
@@ -90,6 +98,10 @@ class _$WorkCopyWithImpl<$Res> implements $WorkCopyWith<$Res> {
           ? _value.instrument
           : instrument // ignore: cast_nullable_to_non_nullable
               as Instrument,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -100,7 +112,11 @@ abstract class _$WorkCopyWith<$Res> implements $WorkCopyWith<$Res> {
       __$WorkCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String name, int? opusNo, List<Piece> pieces, Instrument instrument});
+      {String name,
+      List<WorkNumber> opusNo,
+      List<Piece> pieces,
+      Instrument instrument,
+      String? id});
 }
 
 /// @nodoc
@@ -118,6 +134,7 @@ class __$WorkCopyWithImpl<$Res> extends _$WorkCopyWithImpl<$Res>
     Object? opusNo = freezed,
     Object? pieces = freezed,
     Object? instrument = freezed,
+    Object? id = freezed,
   }) {
     return _then(_Work(
       name: name == freezed
@@ -127,7 +144,7 @@ class __$WorkCopyWithImpl<$Res> extends _$WorkCopyWithImpl<$Res>
       opusNo: opusNo == freezed
           ? _value.opusNo
           : opusNo // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as List<WorkNumber>,
       pieces: pieces == freezed
           ? _value.pieces
           : pieces // ignore: cast_nullable_to_non_nullable
@@ -136,6 +153,10 @@ class __$WorkCopyWithImpl<$Res> extends _$WorkCopyWithImpl<$Res>
           ? _value.instrument
           : instrument // ignore: cast_nullable_to_non_nullable
               as Instrument,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -145,14 +166,16 @@ class __$WorkCopyWithImpl<$Res> extends _$WorkCopyWithImpl<$Res>
 class _$_Work implements _Work {
   const _$_Work(
       {required this.name,
-      this.opusNo,
+      this.opusNo = const [],
       required this.pieces,
-      required this.instrument});
+      required this.instrument,
+      this.id});
 
   @override
   final String name;
+  @JsonKey()
   @override
-  final int? opusNo;
+  final List<WorkNumber> opusNo;
   @override
 
   /// All the pieces that the work consists of
@@ -161,10 +184,12 @@ class _$_Work implements _Work {
 
   /// The instrument for which the work is written.
   final Instrument instrument;
+  @override
+  final String? id;
 
   @override
   String toString() {
-    return 'Work(name: $name, opusNo: $opusNo, pieces: $pieces, instrument: $instrument)';
+    return 'Work(name: $name, opusNo: $opusNo, pieces: $pieces, instrument: $instrument, id: $id)';
   }
 
   @override
@@ -176,7 +201,8 @@ class _$_Work implements _Work {
             const DeepCollectionEquality().equals(other.opusNo, opusNo) &&
             const DeepCollectionEquality().equals(other.pieces, pieces) &&
             const DeepCollectionEquality()
-                .equals(other.instrument, instrument));
+                .equals(other.instrument, instrument) &&
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
@@ -185,7 +211,8 @@ class _$_Work implements _Work {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(opusNo),
       const DeepCollectionEquality().hash(pieces),
-      const DeepCollectionEquality().hash(instrument));
+      const DeepCollectionEquality().hash(instrument),
+      const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -196,14 +223,15 @@ class _$_Work implements _Work {
 abstract class _Work implements Work {
   const factory _Work(
       {required String name,
-      int? opusNo,
+      List<WorkNumber> opusNo,
       required List<Piece> pieces,
-      required Instrument instrument}) = _$_Work;
+      required Instrument instrument,
+      String? id}) = _$_Work;
 
   @override
   String get name;
   @override
-  int? get opusNo;
+  List<WorkNumber> get opusNo;
   @override
 
   /// All the pieces that the work consists of
@@ -212,6 +240,8 @@ abstract class _Work implements Work {
 
   /// The instrument for which the work is written.
   Instrument get instrument;
+  @override
+  String? get id;
   @override
   @JsonKey(ignore: true)
   _$WorkCopyWith<_Work> get copyWith => throw _privateConstructorUsedError;

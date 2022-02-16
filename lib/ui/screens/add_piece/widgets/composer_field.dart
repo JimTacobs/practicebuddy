@@ -40,8 +40,9 @@ class ComposerField extends HookConsumerWidget {
           title: Text(_name),
         );
       },
-      onSuggestionSelected: (suggestion) {
+      onSuggestionSelected: (suggestion) async {
         _addPieceNotifier.selectComposer(suggestion);
+        await _addPieceNotifier.getComposerWorks(suggestion.id!);
       },
       animationDuration: Duration(seconds: 0),
       textFieldConfiguration: TextFieldConfiguration(

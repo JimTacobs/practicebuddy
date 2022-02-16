@@ -16,7 +16,6 @@ class AddComposerForm extends HookConsumerWidget {
     final _addPieceState = ref.watch(addPieceProvider);
     final _addPieceNotifier = ref.watch(addPieceProvider.notifier);
 
-    final _formKey = GlobalKey<FormState>();
     final _theme = Theme.of(context);
 
     final _dateOfBirthDayController = useTextEditingController();
@@ -26,57 +25,54 @@ class AddComposerForm extends HookConsumerWidget {
     final _dateOfDeathMonthController = useTextEditingController();
     final _dateOfDeathYearController = useTextEditingController();
 
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          const ComposerField(),
-          if (_addPieceState.selectedComposer == null &&
-              _addPieceState.composerLastNameController.value.text.isNotEmpty)
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                GenericTextFormField(
-                  controller: _addPieceState.composerFirstNameController,
-                  hintText: 'First name',
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child: Text(
-                    'Day of birth',
-                    style: _theme.textTheme.bodyText1!.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+    return Column(
+      children: [
+        const ComposerField(),
+        if (_addPieceState.selectedComposer == null &&
+            _addPieceState.composerLastNameController.value.text.isNotEmpty)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              GenericTextFormField(
+                controller: _addPieceState.composerFirstNameController,
+                hintText: 'First name',
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12.0),
+                child: Text(
+                  'Day of birth',
+                  style: _theme.textTheme.bodyText1!.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                DateInput(
-                  dayController: _dateOfBirthDayController,
-                  monthController: _dateOfBirthMonthController,
-                  yearController: _dateOfBirthYearController,
-                  setDateCallback: (DateTime date) =>
-                      _addPieceNotifier.setBirthDate(date),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12.0),
-                  child: Text(
-                    'Day of death (optional)',
-                    style: _theme.textTheme.bodyText1!.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
+              ),
+              DateInput(
+                dayController: _dateOfBirthDayController,
+                monthController: _dateOfBirthMonthController,
+                yearController: _dateOfBirthYearController,
+                setDateCallback: (DateTime date) =>
+                    _addPieceNotifier.setBirthDate(date),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12.0),
+                child: Text(
+                  'Day of death (optional)',
+                  style: _theme.textTheme.bodyText1!.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                DateInput(
-                  dayController: _dateOfDeathDayController,
-                  monthController: _dateOfDeathMonthController,
-                  yearController: _dateOfDeathYearController,
-                  setDateCallback: (DateTime date) =>
-                      _addPieceNotifier.setDeathDate(date),
-                  lastFieldOfForm: true,
-                ),
-              ],
-            ),
-        ],
-      ),
+              ),
+              DateInput(
+                dayController: _dateOfDeathDayController,
+                monthController: _dateOfDeathMonthController,
+                yearController: _dateOfDeathYearController,
+                setDateCallback: (DateTime date) =>
+                    _addPieceNotifier.setDeathDate(date),
+                lastFieldOfForm: true,
+              ),
+            ],
+          ),
+      ],
     );
   }
 }

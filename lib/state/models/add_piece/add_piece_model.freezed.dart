@@ -24,16 +24,18 @@ class _$AddPieceTearOff {
       DateTime? dateOfBirth,
       DateTime? dateOfDeath,
       List<Composer> composers = const [],
-      List<Composer> filteredComposers = const [],
-      Composer? selectedComposer}) {
+      Composer? selectedComposer,
+      List<Work> worksOfComposer = const [],
+      Work? selectedWork}) {
     return _AddPiece(
       composerLastNameController: composerLastNameController,
       composerFirstNameController: composerFirstNameController,
       dateOfBirth: dateOfBirth,
       dateOfDeath: dateOfDeath,
       composers: composers,
-      filteredComposers: filteredComposers,
       selectedComposer: selectedComposer,
+      worksOfComposer: worksOfComposer,
+      selectedWork: selectedWork,
     );
   }
 }
@@ -43,6 +45,7 @@ const $AddPiece = _$AddPieceTearOff();
 
 /// @nodoc
 mixin _$AddPiece {
+  /// Composers
   TextEditingController get composerLastNameController =>
       throw _privateConstructorUsedError;
   TextEditingController get composerFirstNameController =>
@@ -50,8 +53,11 @@ mixin _$AddPiece {
   DateTime? get dateOfBirth => throw _privateConstructorUsedError;
   DateTime? get dateOfDeath => throw _privateConstructorUsedError;
   List<Composer> get composers => throw _privateConstructorUsedError;
-  List<Composer> get filteredComposers => throw _privateConstructorUsedError;
   Composer? get selectedComposer => throw _privateConstructorUsedError;
+
+  /// Works
+  List<Work> get worksOfComposer => throw _privateConstructorUsedError;
+  Work? get selectedWork => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddPieceCopyWith<AddPiece> get copyWith =>
@@ -68,10 +74,12 @@ abstract class $AddPieceCopyWith<$Res> {
       DateTime? dateOfBirth,
       DateTime? dateOfDeath,
       List<Composer> composers,
-      List<Composer> filteredComposers,
-      Composer? selectedComposer});
+      Composer? selectedComposer,
+      List<Work> worksOfComposer,
+      Work? selectedWork});
 
   $ComposerCopyWith<$Res>? get selectedComposer;
+  $WorkCopyWith<$Res>? get selectedWork;
 }
 
 /// @nodoc
@@ -89,8 +97,9 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
     Object? dateOfBirth = freezed,
     Object? dateOfDeath = freezed,
     Object? composers = freezed,
-    Object? filteredComposers = freezed,
     Object? selectedComposer = freezed,
+    Object? worksOfComposer = freezed,
+    Object? selectedWork = freezed,
   }) {
     return _then(_value.copyWith(
       composerLastNameController: composerLastNameController == freezed
@@ -113,14 +122,18 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
           ? _value.composers
           : composers // ignore: cast_nullable_to_non_nullable
               as List<Composer>,
-      filteredComposers: filteredComposers == freezed
-          ? _value.filteredComposers
-          : filteredComposers // ignore: cast_nullable_to_non_nullable
-              as List<Composer>,
       selectedComposer: selectedComposer == freezed
           ? _value.selectedComposer
           : selectedComposer // ignore: cast_nullable_to_non_nullable
               as Composer?,
+      worksOfComposer: worksOfComposer == freezed
+          ? _value.worksOfComposer
+          : worksOfComposer // ignore: cast_nullable_to_non_nullable
+              as List<Work>,
+      selectedWork: selectedWork == freezed
+          ? _value.selectedWork
+          : selectedWork // ignore: cast_nullable_to_non_nullable
+              as Work?,
     ));
   }
 
@@ -132,6 +145,17 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
 
     return $ComposerCopyWith<$Res>(_value.selectedComposer!, (value) {
       return _then(_value.copyWith(selectedComposer: value));
+    });
+  }
+
+  @override
+  $WorkCopyWith<$Res>? get selectedWork {
+    if (_value.selectedWork == null) {
+      return null;
+    }
+
+    return $WorkCopyWith<$Res>(_value.selectedWork!, (value) {
+      return _then(_value.copyWith(selectedWork: value));
     });
   }
 }
@@ -147,11 +171,14 @@ abstract class _$AddPieceCopyWith<$Res> implements $AddPieceCopyWith<$Res> {
       DateTime? dateOfBirth,
       DateTime? dateOfDeath,
       List<Composer> composers,
-      List<Composer> filteredComposers,
-      Composer? selectedComposer});
+      Composer? selectedComposer,
+      List<Work> worksOfComposer,
+      Work? selectedWork});
 
   @override
   $ComposerCopyWith<$Res>? get selectedComposer;
+  @override
+  $WorkCopyWith<$Res>? get selectedWork;
 }
 
 /// @nodoc
@@ -170,8 +197,9 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
     Object? dateOfBirth = freezed,
     Object? dateOfDeath = freezed,
     Object? composers = freezed,
-    Object? filteredComposers = freezed,
     Object? selectedComposer = freezed,
+    Object? worksOfComposer = freezed,
+    Object? selectedWork = freezed,
   }) {
     return _then(_AddPiece(
       composerLastNameController: composerLastNameController == freezed
@@ -194,14 +222,18 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
           ? _value.composers
           : composers // ignore: cast_nullable_to_non_nullable
               as List<Composer>,
-      filteredComposers: filteredComposers == freezed
-          ? _value.filteredComposers
-          : filteredComposers // ignore: cast_nullable_to_non_nullable
-              as List<Composer>,
       selectedComposer: selectedComposer == freezed
           ? _value.selectedComposer
           : selectedComposer // ignore: cast_nullable_to_non_nullable
               as Composer?,
+      worksOfComposer: worksOfComposer == freezed
+          ? _value.worksOfComposer
+          : worksOfComposer // ignore: cast_nullable_to_non_nullable
+              as List<Work>,
+      selectedWork: selectedWork == freezed
+          ? _value.selectedWork
+          : selectedWork // ignore: cast_nullable_to_non_nullable
+              as Work?,
     ));
   }
 }
@@ -215,10 +247,13 @@ class _$_AddPiece implements _AddPiece {
       this.dateOfBirth,
       this.dateOfDeath,
       this.composers = const [],
-      this.filteredComposers = const [],
-      this.selectedComposer});
+      this.selectedComposer,
+      this.worksOfComposer = const [],
+      this.selectedWork});
 
   @override
+
+  /// Composers
   final TextEditingController composerLastNameController;
   @override
   final TextEditingController composerFirstNameController;
@@ -229,15 +264,19 @@ class _$_AddPiece implements _AddPiece {
   @JsonKey()
   @override
   final List<Composer> composers;
-  @JsonKey()
-  @override
-  final List<Composer> filteredComposers;
   @override
   final Composer? selectedComposer;
+  @JsonKey()
+  @override
+
+  /// Works
+  final List<Work> worksOfComposer;
+  @override
+  final Work? selectedWork;
 
   @override
   String toString() {
-    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, filteredComposers: $filteredComposers, selectedComposer: $selectedComposer)';
+    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, selectedComposer: $selectedComposer, worksOfComposer: $worksOfComposer, selectedWork: $selectedWork)';
   }
 
   @override
@@ -256,9 +295,11 @@ class _$_AddPiece implements _AddPiece {
                 .equals(other.dateOfDeath, dateOfDeath) &&
             const DeepCollectionEquality().equals(other.composers, composers) &&
             const DeepCollectionEquality()
-                .equals(other.filteredComposers, filteredComposers) &&
+                .equals(other.selectedComposer, selectedComposer) &&
             const DeepCollectionEquality()
-                .equals(other.selectedComposer, selectedComposer));
+                .equals(other.worksOfComposer, worksOfComposer) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedWork, selectedWork));
   }
 
   @override
@@ -269,8 +310,9 @@ class _$_AddPiece implements _AddPiece {
       const DeepCollectionEquality().hash(dateOfBirth),
       const DeepCollectionEquality().hash(dateOfDeath),
       const DeepCollectionEquality().hash(composers),
-      const DeepCollectionEquality().hash(filteredComposers),
-      const DeepCollectionEquality().hash(selectedComposer));
+      const DeepCollectionEquality().hash(selectedComposer),
+      const DeepCollectionEquality().hash(worksOfComposer),
+      const DeepCollectionEquality().hash(selectedWork));
 
   @JsonKey(ignore: true)
   @override
@@ -285,10 +327,13 @@ abstract class _AddPiece implements AddPiece {
       DateTime? dateOfBirth,
       DateTime? dateOfDeath,
       List<Composer> composers,
-      List<Composer> filteredComposers,
-      Composer? selectedComposer}) = _$_AddPiece;
+      Composer? selectedComposer,
+      List<Work> worksOfComposer,
+      Work? selectedWork}) = _$_AddPiece;
 
   @override
+
+  /// Composers
   TextEditingController get composerLastNameController;
   @override
   TextEditingController get composerFirstNameController;
@@ -299,9 +344,13 @@ abstract class _AddPiece implements AddPiece {
   @override
   List<Composer> get composers;
   @override
-  List<Composer> get filteredComposers;
-  @override
   Composer? get selectedComposer;
+  @override
+
+  /// Works
+  List<Work> get worksOfComposer;
+  @override
+  Work? get selectedWork;
   @override
   @JsonKey(ignore: true)
   _$AddPieceCopyWith<_AddPiece> get copyWith =>

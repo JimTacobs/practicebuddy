@@ -8,12 +8,16 @@ part 'add_piece_model.freezed.dart';
 @freezed
 class AddPiece with _$AddPiece {
   const factory AddPiece({
+    /// Composers
     required TextEditingController composerLastNameController,
     required TextEditingController composerFirstNameController,
     DateTime? dateOfBirth,
     DateTime? dateOfDeath,
     @Default([]) List<Composer> composers,
-    @Default([]) List<Composer> filteredComposers,
     Composer? selectedComposer,
+
+    /// Works
+    @Default([]) List<Work> worksOfComposer,
+    Work? selectedWork,
   }) = _AddPiece;
 }
