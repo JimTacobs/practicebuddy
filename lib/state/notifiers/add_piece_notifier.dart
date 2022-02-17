@@ -33,15 +33,15 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
 
   Future<void> getComposerWorks(String id) async {
     CollectionReference composersCollection =
-        FirebaseFirestore.instance.collection('composers');
+        FirebaseFirestore.instance.collection('Composers');
 
     await composersCollection.doc(id).get().then((DocumentSnapshot snapshot) {
       final _doc = mapDoc(snapshot);
+      final _works = mapObjectList(_doc['works'] as List<dynamic>);
 
-      /// Create mapWorks function
       state = state.copyWith(
           selectedComposer: state.selectedComposer!.copyWith(
-        works: mapWorks(_doc['works'] as List<Map<String, Object?>>),
+        works: mapWorks(_works),
       ));
     });
   }

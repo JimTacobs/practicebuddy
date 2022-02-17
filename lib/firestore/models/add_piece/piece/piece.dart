@@ -8,6 +8,7 @@ part 'piece.freezed.dart';
 class Piece with _$Piece {
   const factory Piece({
     required int length,
+    required String name,
     String? id,
     @Default([]) List<Repetition> repetitions,
   }) = _Piece;

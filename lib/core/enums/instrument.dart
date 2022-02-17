@@ -6,4 +6,5 @@ enum Instrument {
   violin,
   viola,
   cello,
+  harpsichord
 }

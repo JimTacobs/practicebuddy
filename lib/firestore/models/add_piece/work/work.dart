@@ -15,8 +15,8 @@ class Work with _$Work {
     /// All the pieces that the work consists of
     required List<Piece> pieces,
 
-    /// The instrument for which the work is written.
-    required Instrument instrument,
+    /// The instruments for which the work is written.
+    required List<Instrument> instruments,
     String? id,
   }) = _Work;
 }
