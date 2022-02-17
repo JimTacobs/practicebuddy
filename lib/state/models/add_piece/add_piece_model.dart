@@ -17,7 +17,10 @@ class AddPiece with _$AddPiece {
     Composer? selectedComposer,
 
     /// Works
-    @Default([]) List<Work> worksOfComposer,
+    required TextEditingController workController,
+    required TextEditingController customNumberingSystemController,
+    required TextEditingController workNumberController,
     Work? selectedWork,
+    Piece? selectedPiece,
   }) = _AddPiece;
 }

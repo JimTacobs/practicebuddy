@@ -27,7 +27,7 @@ class AddComposerForm extends HookConsumerWidget {
 
     return Column(
       children: [
-        const ComposerField(),
+        const ComposerSuggestionField(),
         if (_addPieceState.selectedComposer == null &&
             _addPieceState.composerLastNameController.value.text.isNotEmpty)
           Column(

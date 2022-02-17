@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'work_number.dart';
 import '../../../../core/enums.dart';
 import '../../firestore_models.dart';
+import 'work_number.dart';
 
 part 'work.freezed.dart';
 
@@ -10,10 +10,10 @@ part 'work.freezed.dart';
 class Work with _$Work {
   const factory Work({
     required String name,
-    @Default([]) List<WorkNumber> opusNo,
+    required WorkNumber opusNo,
 
     /// All the pieces that the work consists of
-    required List<Piece> pieces,
+    @Default([]) List<Piece> pieces,
 
     /// The instruments for which the work is written.
     required List<Instrument> instruments,

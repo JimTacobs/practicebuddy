@@ -4,11 +4,11 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../firestore/models/firestore_models.dart';
-import '../../../../util/helpers.dart';
 import '../../../../state/state_providers.dart';
+import '../../../../util/helpers.dart';
 
-class WorkField extends HookConsumerWidget {
-  const WorkField({
+class WorkSuggestionField extends HookConsumerWidget {
+  const WorkSuggestionField({
     Key? key,
   }) : super(key: key);
 
@@ -22,19 +22,39 @@ class WorkField extends HookConsumerWidget {
       suggestionsCallback: (val) {
         final _jw = JaroWinkler();
 
-        _addPieceState.worksOfComposer.sort((a, b) {
+        _addPieceState.selectedComposer!.works.sort((a, b) {
           final dA = _jw.normalizedDistance(removeDiacritics(a.name), val);
           final dB = _jw.normalizedDistance(removeDiacritics(b.name), val);
           return dA.compareTo(dB);
         });
-        return _addPieceState.worksOfComposer;
+
+        if (val.isNotEmpty) {
+          _addPieceNotifier.addDummyWork(val);
+        }
+
+        if (val.isEmpty) {
+          _addPieceNotifier.deleteDummyWork();
+        }
+
+        return _addPieceState.selectedComposer!.works;
       },
       itemBuilder: (ctx, suggestion) {
-        return Container();
+        return ListTile(
+          title: Text(suggestion.name),
+        );
       },
       onSuggestionSelected: (suggestion) async {
-
+        _addPieceNotifier.setWork(suggestion);
       },
+      animationDuration: Duration(seconds: 0),
+      textFieldConfiguration: TextFieldConfiguration(
+        controller: _addPieceState.workController,
+        decoration: InputDecoration(
+          fillColor: _theme.backgroundColor,
+          hintText: 'Name',
+        ),
+        textCapitalization: TextCapitalization.words,
+      ),
     );
   }
 }

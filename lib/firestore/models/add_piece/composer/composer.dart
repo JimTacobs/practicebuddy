@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../firestore_models.dart';
+
 part 'composer.freezed.dart';
 
 @freezed
@@ -10,9 +12,8 @@ class Composer with _$Composer {
     required DateTime dateOfBirth,
     required DateTime? dateOfDeath,
 
-    /// Temporary dynamic, must be a list of works.
-    required dynamic works,
-    required List<String> numberingSystem,
+    required List<Work> works,
+    required String numberingSystem,
     String? id,
   }) = _Composer;
 }

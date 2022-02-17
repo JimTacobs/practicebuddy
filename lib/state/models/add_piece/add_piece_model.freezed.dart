@@ -25,8 +25,11 @@ class _$AddPieceTearOff {
       DateTime? dateOfDeath,
       List<Composer> composers = const [],
       Composer? selectedComposer,
-      List<Work> worksOfComposer = const [],
-      Work? selectedWork}) {
+      required TextEditingController workController,
+      required TextEditingController customNumberingSystemController,
+      required TextEditingController workNumberController,
+      Work? selectedWork,
+      Piece? selectedPiece}) {
     return _AddPiece(
       composerLastNameController: composerLastNameController,
       composerFirstNameController: composerFirstNameController,
@@ -34,8 +37,11 @@ class _$AddPieceTearOff {
       dateOfDeath: dateOfDeath,
       composers: composers,
       selectedComposer: selectedComposer,
-      worksOfComposer: worksOfComposer,
+      workController: workController,
+      customNumberingSystemController: customNumberingSystemController,
+      workNumberController: workNumberController,
       selectedWork: selectedWork,
+      selectedPiece: selectedPiece,
     );
   }
 }
@@ -56,8 +62,14 @@ mixin _$AddPiece {
   Composer? get selectedComposer => throw _privateConstructorUsedError;
 
   /// Works
-  List<Work> get worksOfComposer => throw _privateConstructorUsedError;
+  TextEditingController get workController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get customNumberingSystemController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get workNumberController =>
+      throw _privateConstructorUsedError;
   Work? get selectedWork => throw _privateConstructorUsedError;
+  Piece? get selectedPiece => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddPieceCopyWith<AddPiece> get copyWith =>
@@ -75,11 +87,15 @@ abstract class $AddPieceCopyWith<$Res> {
       DateTime? dateOfDeath,
       List<Composer> composers,
       Composer? selectedComposer,
-      List<Work> worksOfComposer,
-      Work? selectedWork});
+      TextEditingController workController,
+      TextEditingController customNumberingSystemController,
+      TextEditingController workNumberController,
+      Work? selectedWork,
+      Piece? selectedPiece});
 
   $ComposerCopyWith<$Res>? get selectedComposer;
   $WorkCopyWith<$Res>? get selectedWork;
+  $PieceCopyWith<$Res>? get selectedPiece;
 }
 
 /// @nodoc
@@ -98,8 +114,11 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
     Object? dateOfDeath = freezed,
     Object? composers = freezed,
     Object? selectedComposer = freezed,
-    Object? worksOfComposer = freezed,
+    Object? workController = freezed,
+    Object? customNumberingSystemController = freezed,
+    Object? workNumberController = freezed,
     Object? selectedWork = freezed,
+    Object? selectedPiece = freezed,
   }) {
     return _then(_value.copyWith(
       composerLastNameController: composerLastNameController == freezed
@@ -126,14 +145,27 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
           ? _value.selectedComposer
           : selectedComposer // ignore: cast_nullable_to_non_nullable
               as Composer?,
-      worksOfComposer: worksOfComposer == freezed
-          ? _value.worksOfComposer
-          : worksOfComposer // ignore: cast_nullable_to_non_nullable
-              as List<Work>,
+      workController: workController == freezed
+          ? _value.workController
+          : workController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      customNumberingSystemController: customNumberingSystemController ==
+              freezed
+          ? _value.customNumberingSystemController
+          : customNumberingSystemController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      workNumberController: workNumberController == freezed
+          ? _value.workNumberController
+          : workNumberController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       selectedWork: selectedWork == freezed
           ? _value.selectedWork
           : selectedWork // ignore: cast_nullable_to_non_nullable
               as Work?,
+      selectedPiece: selectedPiece == freezed
+          ? _value.selectedPiece
+          : selectedPiece // ignore: cast_nullable_to_non_nullable
+              as Piece?,
     ));
   }
 
@@ -158,6 +190,17 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
       return _then(_value.copyWith(selectedWork: value));
     });
   }
+
+  @override
+  $PieceCopyWith<$Res>? get selectedPiece {
+    if (_value.selectedPiece == null) {
+      return null;
+    }
+
+    return $PieceCopyWith<$Res>(_value.selectedPiece!, (value) {
+      return _then(_value.copyWith(selectedPiece: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -172,13 +215,18 @@ abstract class _$AddPieceCopyWith<$Res> implements $AddPieceCopyWith<$Res> {
       DateTime? dateOfDeath,
       List<Composer> composers,
       Composer? selectedComposer,
-      List<Work> worksOfComposer,
-      Work? selectedWork});
+      TextEditingController workController,
+      TextEditingController customNumberingSystemController,
+      TextEditingController workNumberController,
+      Work? selectedWork,
+      Piece? selectedPiece});
 
   @override
   $ComposerCopyWith<$Res>? get selectedComposer;
   @override
   $WorkCopyWith<$Res>? get selectedWork;
+  @override
+  $PieceCopyWith<$Res>? get selectedPiece;
 }
 
 /// @nodoc
@@ -198,8 +246,11 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
     Object? dateOfDeath = freezed,
     Object? composers = freezed,
     Object? selectedComposer = freezed,
-    Object? worksOfComposer = freezed,
+    Object? workController = freezed,
+    Object? customNumberingSystemController = freezed,
+    Object? workNumberController = freezed,
     Object? selectedWork = freezed,
+    Object? selectedPiece = freezed,
   }) {
     return _then(_AddPiece(
       composerLastNameController: composerLastNameController == freezed
@@ -226,14 +277,27 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
           ? _value.selectedComposer
           : selectedComposer // ignore: cast_nullable_to_non_nullable
               as Composer?,
-      worksOfComposer: worksOfComposer == freezed
-          ? _value.worksOfComposer
-          : worksOfComposer // ignore: cast_nullable_to_non_nullable
-              as List<Work>,
+      workController: workController == freezed
+          ? _value.workController
+          : workController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      customNumberingSystemController: customNumberingSystemController ==
+              freezed
+          ? _value.customNumberingSystemController
+          : customNumberingSystemController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      workNumberController: workNumberController == freezed
+          ? _value.workNumberController
+          : workNumberController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       selectedWork: selectedWork == freezed
           ? _value.selectedWork
           : selectedWork // ignore: cast_nullable_to_non_nullable
               as Work?,
+      selectedPiece: selectedPiece == freezed
+          ? _value.selectedPiece
+          : selectedPiece // ignore: cast_nullable_to_non_nullable
+              as Piece?,
     ));
   }
 }
@@ -248,8 +312,11 @@ class _$_AddPiece implements _AddPiece {
       this.dateOfDeath,
       this.composers = const [],
       this.selectedComposer,
-      this.worksOfComposer = const [],
-      this.selectedWork});
+      required this.workController,
+      required this.customNumberingSystemController,
+      required this.workNumberController,
+      this.selectedWork,
+      this.selectedPiece});
 
   @override
 
@@ -266,17 +333,22 @@ class _$_AddPiece implements _AddPiece {
   final List<Composer> composers;
   @override
   final Composer? selectedComposer;
-  @JsonKey()
   @override
 
   /// Works
-  final List<Work> worksOfComposer;
+  final TextEditingController workController;
+  @override
+  final TextEditingController customNumberingSystemController;
+  @override
+  final TextEditingController workNumberController;
   @override
   final Work? selectedWork;
+  @override
+  final Piece? selectedPiece;
 
   @override
   String toString() {
-    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, selectedComposer: $selectedComposer, worksOfComposer: $worksOfComposer, selectedWork: $selectedWork)';
+    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, selectedComposer: $selectedComposer, workController: $workController, customNumberingSystemController: $customNumberingSystemController, workNumberController: $workNumberController, selectedWork: $selectedWork, selectedPiece: $selectedPiece)';
   }
 
   @override
@@ -297,9 +369,16 @@ class _$_AddPiece implements _AddPiece {
             const DeepCollectionEquality()
                 .equals(other.selectedComposer, selectedComposer) &&
             const DeepCollectionEquality()
-                .equals(other.worksOfComposer, worksOfComposer) &&
+                .equals(other.workController, workController) &&
+            const DeepCollectionEquality().equals(
+                other.customNumberingSystemController,
+                customNumberingSystemController) &&
             const DeepCollectionEquality()
-                .equals(other.selectedWork, selectedWork));
+                .equals(other.workNumberController, workNumberController) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedWork, selectedWork) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedPiece, selectedPiece));
   }
 
   @override
@@ -311,8 +390,11 @@ class _$_AddPiece implements _AddPiece {
       const DeepCollectionEquality().hash(dateOfDeath),
       const DeepCollectionEquality().hash(composers),
       const DeepCollectionEquality().hash(selectedComposer),
-      const DeepCollectionEquality().hash(worksOfComposer),
-      const DeepCollectionEquality().hash(selectedWork));
+      const DeepCollectionEquality().hash(workController),
+      const DeepCollectionEquality().hash(customNumberingSystemController),
+      const DeepCollectionEquality().hash(workNumberController),
+      const DeepCollectionEquality().hash(selectedWork),
+      const DeepCollectionEquality().hash(selectedPiece));
 
   @JsonKey(ignore: true)
   @override
@@ -328,8 +410,11 @@ abstract class _AddPiece implements AddPiece {
       DateTime? dateOfDeath,
       List<Composer> composers,
       Composer? selectedComposer,
-      List<Work> worksOfComposer,
-      Work? selectedWork}) = _$_AddPiece;
+      required TextEditingController workController,
+      required TextEditingController customNumberingSystemController,
+      required TextEditingController workNumberController,
+      Work? selectedWork,
+      Piece? selectedPiece}) = _$_AddPiece;
 
   @override
 
@@ -348,9 +433,15 @@ abstract class _AddPiece implements AddPiece {
   @override
 
   /// Works
-  List<Work> get worksOfComposer;
+  TextEditingController get workController;
+  @override
+  TextEditingController get customNumberingSystemController;
+  @override
+  TextEditingController get workNumberController;
   @override
   Work? get selectedWork;
+  @override
+  Piece? get selectedPiece;
   @override
   @JsonKey(ignore: true)
   _$AddPieceCopyWith<_AddPiece> get copyWith =>

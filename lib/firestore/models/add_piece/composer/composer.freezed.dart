@@ -23,8 +23,8 @@ class _$ComposerTearOff {
       required String lastName,
       required DateTime dateOfBirth,
       required DateTime? dateOfDeath,
-      required dynamic works,
-      required List<String> numberingSystem,
+      required List<Work> works,
+      required String numberingSystem,
       String? id}) {
     return _Composer(
       firstNames: firstNames,
@@ -47,10 +47,8 @@ mixin _$Composer {
   String get lastName => throw _privateConstructorUsedError;
   DateTime get dateOfBirth => throw _privateConstructorUsedError;
   DateTime? get dateOfDeath => throw _privateConstructorUsedError;
-
-  /// Temporary dynamic, must be a list of works.
-  dynamic get works => throw _privateConstructorUsedError;
-  List<String> get numberingSystem => throw _privateConstructorUsedError;
+  List<Work> get works => throw _privateConstructorUsedError;
+  String get numberingSystem => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -67,8 +65,8 @@ abstract class $ComposerCopyWith<$Res> {
       String lastName,
       DateTime dateOfBirth,
       DateTime? dateOfDeath,
-      dynamic works,
-      List<String> numberingSystem,
+      List<Work> works,
+      String numberingSystem,
       String? id});
 }
 
@@ -110,11 +108,11 @@ class _$ComposerCopyWithImpl<$Res> implements $ComposerCopyWith<$Res> {
       works: works == freezed
           ? _value.works
           : works // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as List<Work>,
       numberingSystem: numberingSystem == freezed
           ? _value.numberingSystem
           : numberingSystem // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -133,8 +131,8 @@ abstract class _$ComposerCopyWith<$Res> implements $ComposerCopyWith<$Res> {
       String lastName,
       DateTime dateOfBirth,
       DateTime? dateOfDeath,
-      dynamic works,
-      List<String> numberingSystem,
+      List<Work> works,
+      String numberingSystem,
       String? id});
 }
 
@@ -177,11 +175,11 @@ class __$ComposerCopyWithImpl<$Res> extends _$ComposerCopyWithImpl<$Res>
       works: works == freezed
           ? _value.works
           : works // ignore: cast_nullable_to_non_nullable
-              as dynamic,
+              as List<Work>,
       numberingSystem: numberingSystem == freezed
           ? _value.numberingSystem
           : numberingSystem // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as String,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -211,11 +209,9 @@ class _$_Composer implements _Composer {
   @override
   final DateTime? dateOfDeath;
   @override
-
-  /// Temporary dynamic, must be a list of works.
-  final dynamic works;
+  final List<Work> works;
   @override
-  final List<String> numberingSystem;
+  final String numberingSystem;
   @override
   final String? id;
 
@@ -265,8 +261,8 @@ abstract class _Composer implements Composer {
       required String lastName,
       required DateTime dateOfBirth,
       required DateTime? dateOfDeath,
-      required dynamic works,
-      required List<String> numberingSystem,
+      required List<Work> works,
+      required String numberingSystem,
       String? id}) = _$_Composer;
 
   @override
@@ -278,11 +274,9 @@ abstract class _Composer implements Composer {
   @override
   DateTime? get dateOfDeath;
   @override
-
-  /// Temporary dynamic, must be a list of works.
-  dynamic get works;
+  List<Work> get works;
   @override
-  List<String> get numberingSystem;
+  String get numberingSystem;
   @override
   String? get id;
   @override

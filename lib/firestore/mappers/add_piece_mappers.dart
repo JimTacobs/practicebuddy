@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'util_mappers.dart';
-import '../models/add_piece/work/work_number.dart';
+
 import '../../core/enums.dart';
+import '../models/add_piece/work/work_number.dart';
 import '../models/firestore_models.dart';
+import 'util_mappers.dart';
 
 Composer mapComposer(Map<String, Object?> doc, String id) {
   return Composer(
@@ -11,7 +12,7 @@ Composer mapComposer(Map<String, Object?> doc, String id) {
     lastName: doc['lastName'] as String,
     dateOfBirth: (doc['dateOfBirth'] as Timestamp).toDate(),
     dateOfDeath: (doc['dateOfDeath'] as Timestamp).toDate(),
-    numberingSystem: [],
+    numberingSystem: doc['numberingSystem'] as String,
     works: [],
   );
 }
@@ -24,7 +25,7 @@ List<Work> mapWorks(List<dynamic> docs) {
       Work(
         instruments: _mapInstruments(doc['instruments'] as List<dynamic>),
         name: doc['name'] as String,
-        opusNo: _mapWorkNumber(doc['opusNo'] as List<dynamic>),
+        opusNo: _mapWorkNumber(doc['opusNo'] as Map<String, dynamic>),
         pieces: _mapPieces(doc['pieces'] as List<dynamic>),
         id: doc['id'] as String,
       ),
@@ -77,14 +78,10 @@ List<int> _mapMeasuresToSkipOnRepetition(List<dynamic> docs) {
   return List<int>.from(docs);
 }
 
-List<WorkNumber> _mapWorkNumber(List<dynamic> docs) {
-  final _docs = mapObjectList(docs);
-  final workNumbers = <WorkNumber>[];
-  for (final doc in _docs) {
-    workNumbers.add(WorkNumber(
-      doc['numberingSystem'] as String,
-      doc['number'] as int,
-    ));
-  }
-  return workNumbers;
+WorkNumber _mapWorkNumber(Map<String, dynamic> doc) {
+  final _doc = mapObject(doc);
+  return WorkNumber(
+    _doc['numberingSystem'] as String,
+    _doc['number'] as int,
+  );
 }

@@ -7,8 +7,8 @@ import '../../../../firestore/models/firestore_models.dart';
 import '../../../../state/state_providers.dart';
 import '../../../../util/helpers.dart';
 
-class ComposerField extends HookConsumerWidget {
-  const ComposerField();
+class ComposerSuggestionField extends HookConsumerWidget {
+  const ComposerSuggestionField();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -30,6 +30,11 @@ class ComposerField extends HookConsumerWidget {
         if (val.isNotEmpty) {
           _addPieceNotifier.addDummyComposer(val);
         }
+
+        if (val.isEmpty) {
+          _addPieceNotifier.deleteDummyComposer();
+        }
+
         return _addPieceState.composers;
       },
       itemBuilder: (ctx, suggestion) {

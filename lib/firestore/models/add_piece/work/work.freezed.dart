@@ -20,8 +20,8 @@ class _$WorkTearOff {
 
   _Work call(
       {required String name,
-      List<WorkNumber> opusNo = const [],
-      required List<Piece> pieces,
+      required WorkNumber opusNo,
+      List<Piece> pieces = const [],
       required List<Instrument> instruments,
       String? id}) {
     return _Work(
@@ -40,7 +40,7 @@ const $Work = _$WorkTearOff();
 /// @nodoc
 mixin _$Work {
   String get name => throw _privateConstructorUsedError;
-  List<WorkNumber> get opusNo => throw _privateConstructorUsedError;
+  WorkNumber get opusNo => throw _privateConstructorUsedError;
 
   /// All the pieces that the work consists of
   List<Piece> get pieces => throw _privateConstructorUsedError;
@@ -59,7 +59,7 @@ abstract class $WorkCopyWith<$Res> {
       _$WorkCopyWithImpl<$Res>;
   $Res call(
       {String name,
-      List<WorkNumber> opusNo,
+      WorkNumber opusNo,
       List<Piece> pieces,
       List<Instrument> instruments,
       String? id});
@@ -89,7 +89,7 @@ class _$WorkCopyWithImpl<$Res> implements $WorkCopyWith<$Res> {
       opusNo: opusNo == freezed
           ? _value.opusNo
           : opusNo // ignore: cast_nullable_to_non_nullable
-              as List<WorkNumber>,
+              as WorkNumber,
       pieces: pieces == freezed
           ? _value.pieces
           : pieces // ignore: cast_nullable_to_non_nullable
@@ -113,7 +113,7 @@ abstract class _$WorkCopyWith<$Res> implements $WorkCopyWith<$Res> {
   @override
   $Res call(
       {String name,
-      List<WorkNumber> opusNo,
+      WorkNumber opusNo,
       List<Piece> pieces,
       List<Instrument> instruments,
       String? id});
@@ -144,7 +144,7 @@ class __$WorkCopyWithImpl<$Res> extends _$WorkCopyWithImpl<$Res>
       opusNo: opusNo == freezed
           ? _value.opusNo
           : opusNo // ignore: cast_nullable_to_non_nullable
-              as List<WorkNumber>,
+              as WorkNumber,
       pieces: pieces == freezed
           ? _value.pieces
           : pieces // ignore: cast_nullable_to_non_nullable
@@ -166,16 +166,16 @@ class __$WorkCopyWithImpl<$Res> extends _$WorkCopyWithImpl<$Res>
 class _$_Work implements _Work {
   const _$_Work(
       {required this.name,
-      this.opusNo = const [],
-      required this.pieces,
+      required this.opusNo,
+      this.pieces = const [],
       required this.instruments,
       this.id});
 
   @override
   final String name;
-  @JsonKey()
   @override
-  final List<WorkNumber> opusNo;
+  final WorkNumber opusNo;
+  @JsonKey()
   @override
 
   /// All the pieces that the work consists of
@@ -223,15 +223,15 @@ class _$_Work implements _Work {
 abstract class _Work implements Work {
   const factory _Work(
       {required String name,
-      List<WorkNumber> opusNo,
-      required List<Piece> pieces,
+      required WorkNumber opusNo,
+      List<Piece> pieces,
       required List<Instrument> instruments,
       String? id}) = _$_Work;
 
   @override
   String get name;
   @override
-  List<WorkNumber> get opusNo;
+  WorkNumber get opusNo;
   @override
 
   /// All the pieces that the work consists of
