@@ -29,6 +29,10 @@ class _$AddPieceTearOff {
       required TextEditingController customNumberingSystemController,
       required TextEditingController workNumberController,
       Work? selectedWork,
+      required TextEditingController pieceController,
+      required TextEditingController pieceNumberController,
+      required TextEditingController pieceTempoController,
+      required TextEditingController pieceLengthController,
       Piece? selectedPiece}) {
     return _AddPiece(
       composerLastNameController: composerLastNameController,
@@ -41,6 +45,10 @@ class _$AddPieceTearOff {
       customNumberingSystemController: customNumberingSystemController,
       workNumberController: workNumberController,
       selectedWork: selectedWork,
+      pieceController: pieceController,
+      pieceNumberController: pieceNumberController,
+      pieceTempoController: pieceTempoController,
+      pieceLengthController: pieceLengthController,
       selectedPiece: selectedPiece,
     );
   }
@@ -69,6 +77,16 @@ mixin _$AddPiece {
   TextEditingController get workNumberController =>
       throw _privateConstructorUsedError;
   Work? get selectedWork => throw _privateConstructorUsedError;
+
+  /// Piece
+  TextEditingController get pieceController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get pieceNumberController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get pieceTempoController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get pieceLengthController =>
+      throw _privateConstructorUsedError;
   Piece? get selectedPiece => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -91,6 +109,10 @@ abstract class $AddPieceCopyWith<$Res> {
       TextEditingController customNumberingSystemController,
       TextEditingController workNumberController,
       Work? selectedWork,
+      TextEditingController pieceController,
+      TextEditingController pieceNumberController,
+      TextEditingController pieceTempoController,
+      TextEditingController pieceLengthController,
       Piece? selectedPiece});
 
   $ComposerCopyWith<$Res>? get selectedComposer;
@@ -118,6 +140,10 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
     Object? customNumberingSystemController = freezed,
     Object? workNumberController = freezed,
     Object? selectedWork = freezed,
+    Object? pieceController = freezed,
+    Object? pieceNumberController = freezed,
+    Object? pieceTempoController = freezed,
+    Object? pieceLengthController = freezed,
     Object? selectedPiece = freezed,
   }) {
     return _then(_value.copyWith(
@@ -162,6 +188,22 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
           ? _value.selectedWork
           : selectedWork // ignore: cast_nullable_to_non_nullable
               as Work?,
+      pieceController: pieceController == freezed
+          ? _value.pieceController
+          : pieceController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceNumberController: pieceNumberController == freezed
+          ? _value.pieceNumberController
+          : pieceNumberController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceTempoController: pieceTempoController == freezed
+          ? _value.pieceTempoController
+          : pieceTempoController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceLengthController: pieceLengthController == freezed
+          ? _value.pieceLengthController
+          : pieceLengthController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       selectedPiece: selectedPiece == freezed
           ? _value.selectedPiece
           : selectedPiece // ignore: cast_nullable_to_non_nullable
@@ -219,6 +261,10 @@ abstract class _$AddPieceCopyWith<$Res> implements $AddPieceCopyWith<$Res> {
       TextEditingController customNumberingSystemController,
       TextEditingController workNumberController,
       Work? selectedWork,
+      TextEditingController pieceController,
+      TextEditingController pieceNumberController,
+      TextEditingController pieceTempoController,
+      TextEditingController pieceLengthController,
       Piece? selectedPiece});
 
   @override
@@ -250,6 +296,10 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
     Object? customNumberingSystemController = freezed,
     Object? workNumberController = freezed,
     Object? selectedWork = freezed,
+    Object? pieceController = freezed,
+    Object? pieceNumberController = freezed,
+    Object? pieceTempoController = freezed,
+    Object? pieceLengthController = freezed,
     Object? selectedPiece = freezed,
   }) {
     return _then(_AddPiece(
@@ -294,6 +344,22 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
           ? _value.selectedWork
           : selectedWork // ignore: cast_nullable_to_non_nullable
               as Work?,
+      pieceController: pieceController == freezed
+          ? _value.pieceController
+          : pieceController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceNumberController: pieceNumberController == freezed
+          ? _value.pieceNumberController
+          : pieceNumberController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceTempoController: pieceTempoController == freezed
+          ? _value.pieceTempoController
+          : pieceTempoController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceLengthController: pieceLengthController == freezed
+          ? _value.pieceLengthController
+          : pieceLengthController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       selectedPiece: selectedPiece == freezed
           ? _value.selectedPiece
           : selectedPiece // ignore: cast_nullable_to_non_nullable
@@ -316,6 +382,10 @@ class _$_AddPiece implements _AddPiece {
       required this.customNumberingSystemController,
       required this.workNumberController,
       this.selectedWork,
+      required this.pieceController,
+      required this.pieceNumberController,
+      required this.pieceTempoController,
+      required this.pieceLengthController,
       this.selectedPiece});
 
   @override
@@ -344,11 +414,21 @@ class _$_AddPiece implements _AddPiece {
   @override
   final Work? selectedWork;
   @override
+
+  /// Piece
+  final TextEditingController pieceController;
+  @override
+  final TextEditingController pieceNumberController;
+  @override
+  final TextEditingController pieceTempoController;
+  @override
+  final TextEditingController pieceLengthController;
+  @override
   final Piece? selectedPiece;
 
   @override
   String toString() {
-    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, selectedComposer: $selectedComposer, workController: $workController, customNumberingSystemController: $customNumberingSystemController, workNumberController: $workNumberController, selectedWork: $selectedWork, selectedPiece: $selectedPiece)';
+    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, selectedComposer: $selectedComposer, workController: $workController, customNumberingSystemController: $customNumberingSystemController, workNumberController: $workNumberController, selectedWork: $selectedWork, pieceController: $pieceController, pieceNumberController: $pieceNumberController, pieceTempoController: $pieceTempoController, pieceLengthController: $pieceLengthController, selectedPiece: $selectedPiece)';
   }
 
   @override
@@ -378,6 +458,14 @@ class _$_AddPiece implements _AddPiece {
             const DeepCollectionEquality()
                 .equals(other.selectedWork, selectedWork) &&
             const DeepCollectionEquality()
+                .equals(other.pieceController, pieceController) &&
+            const DeepCollectionEquality()
+                .equals(other.pieceNumberController, pieceNumberController) &&
+            const DeepCollectionEquality()
+                .equals(other.pieceTempoController, pieceTempoController) &&
+            const DeepCollectionEquality()
+                .equals(other.pieceLengthController, pieceLengthController) &&
+            const DeepCollectionEquality()
                 .equals(other.selectedPiece, selectedPiece));
   }
 
@@ -394,6 +482,10 @@ class _$_AddPiece implements _AddPiece {
       const DeepCollectionEquality().hash(customNumberingSystemController),
       const DeepCollectionEquality().hash(workNumberController),
       const DeepCollectionEquality().hash(selectedWork),
+      const DeepCollectionEquality().hash(pieceController),
+      const DeepCollectionEquality().hash(pieceNumberController),
+      const DeepCollectionEquality().hash(pieceTempoController),
+      const DeepCollectionEquality().hash(pieceLengthController),
       const DeepCollectionEquality().hash(selectedPiece));
 
   @JsonKey(ignore: true)
@@ -414,6 +506,10 @@ abstract class _AddPiece implements AddPiece {
       required TextEditingController customNumberingSystemController,
       required TextEditingController workNumberController,
       Work? selectedWork,
+      required TextEditingController pieceController,
+      required TextEditingController pieceNumberController,
+      required TextEditingController pieceTempoController,
+      required TextEditingController pieceLengthController,
       Piece? selectedPiece}) = _$_AddPiece;
 
   @override
@@ -440,6 +536,16 @@ abstract class _AddPiece implements AddPiece {
   TextEditingController get workNumberController;
   @override
   Work? get selectedWork;
+  @override
+
+  /// Piece
+  TextEditingController get pieceController;
+  @override
+  TextEditingController get pieceNumberController;
+  @override
+  TextEditingController get pieceTempoController;
+  @override
+  TextEditingController get pieceLengthController;
   @override
   Piece? get selectedPiece;
   @override

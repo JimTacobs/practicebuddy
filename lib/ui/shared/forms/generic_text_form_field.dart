@@ -23,18 +23,21 @@ class GenericTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     final _theme = Theme.of(context);
 
-    return TextFormField(
-      controller: controller,
-      decoration: InputDecoration(
-        hintText: hintText,
-        fillColor: _theme.backgroundColor,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 3),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          hintText: hintText,
+          fillColor: _theme.backgroundColor,
+        ),
+        onChanged: onChange,
+        onFieldSubmitted: onFieldSubmitted,
+        readOnly: readOnly,
+        keyboardType: keyboardType,
+        textCapitalization: TextCapitalization.words,
+        textInputAction: textInputAction,
       ),
-      onChanged: onChange,
-      onFieldSubmitted: onFieldSubmitted,
-      readOnly: readOnly,
-      keyboardType: keyboardType,
-      textCapitalization: TextCapitalization.words,
-      textInputAction: textInputAction,
     );
   }
 }

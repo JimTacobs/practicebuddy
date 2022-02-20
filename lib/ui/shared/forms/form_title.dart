@@ -19,7 +19,7 @@ class FormTitle extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          padding: const EdgeInsets.only(bottom: 8.0, top: 16),
           child: Text(title, style: _theme.textTheme.headline6,),
         ),
         if (showEditIcon)

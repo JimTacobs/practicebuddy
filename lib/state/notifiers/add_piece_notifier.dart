@@ -15,6 +15,10 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
           workController: TextEditingController(),
           customNumberingSystemController: TextEditingController(),
           workNumberController: TextEditingController(),
+          pieceController: TextEditingController(),
+          pieceLengthController: TextEditingController(),
+          pieceNumberController: TextEditingController(),
+          pieceTempoController: TextEditingController(),
         ));
 
   /// API calls
@@ -52,8 +56,10 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
 
   /// Composer first and last name selection.
   void addDummyComposer(String lastName) {
-    if (state.composers[0].lastName.contains(' - Add new')) {
-      state.composers.removeAt(0);
+    final _index = state.composers
+        .indexWhere((element) => element.lastName.contains(' - Add new'));
+    if (_index != -1) {
+      state.composers.removeAt(_index);
     }
 
     state.composers.insert(
@@ -121,9 +127,12 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
   }
 
   void addDummyWork(String workName) {
-    if (state.selectedComposer!.works[0].name.contains(' - Add new')) {
-      state.selectedComposer!.works.removeAt(0);
+    final _index = state.selectedComposer!.works
+        .indexWhere((element) => element.name.contains(' - Add new'));
+    if (_index != -1) {
+      state.selectedComposer!.works.removeAt(_index);
     }
+
     state.selectedComposer!.works.insert(
       0,
       Work(
@@ -137,8 +146,44 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
   }
 
   void deleteDummyWork() {
-    if (state.selectedComposer!.works[0].name.contains(' - Add new')) {
-      state.selectedComposer!.works.removeAt(0);
+    state.selectedComposer!.works
+        .removeWhere((work) => work.name.contains(' - Add new'));
+  }
+
+  /// Piece
+  void selectPiece(Piece piece) {
+    state = state.copyWith(
+      selectedPiece: piece,
+    );
+  }
+
+  void unselectPiece() {
+    state = state.copyWith(
+      selectedPiece: null,
+    );
+  }
+
+  void addDummyPiece(String name) {
+    final _index = state.selectedWork!.pieces
+        .indexWhere((element) => element.name.contains(' - Add new'));
+    if (_index != -1) {
+      state.selectedWork!.pieces.removeAt(_index);
     }
+
+    state.selectedWork!.pieces.insert(
+        0,
+        Piece(
+          name: name,
+          length: 0,
+          requiredTempo: 0,
+          id: '',
+          repetitions: [],
+          number: 0,
+        ));
+  }
+
+  void deleteDummyPiece() {
+    state.selectedWork!.pieces
+        .removeWhere((piece) => piece.name.contains(' - Add new'));
   }
 }

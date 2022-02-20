@@ -54,6 +54,8 @@ List<Piece> _mapPieces(List<dynamic> docs) {
       length: doc['length'] as int,
       id: doc['id'] as String,
       repetitions: _mapRepetitions(doc['repetitions'] as List<dynamic>),
+      requiredTempo: doc['requiredTempo'] as int,
+      number: doc['number'] as int,
     ));
   }
   return pieces;

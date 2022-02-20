@@ -20,12 +20,16 @@ class _$PieceTearOff {
 
   _Piece call(
       {required int length,
+      required int number,
       required String name,
+      required int requiredTempo,
       String? id,
       List<Repetition> repetitions = const []}) {
     return _Piece(
       length: length,
+      number: number,
       name: name,
+      requiredTempo: requiredTempo,
       id: id,
       repetitions: repetitions,
     );
@@ -38,7 +42,9 @@ const $Piece = _$PieceTearOff();
 /// @nodoc
 mixin _$Piece {
   int get length => throw _privateConstructorUsedError;
+  int get number => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  int get requiredTempo => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
   List<Repetition> get repetitions => throw _privateConstructorUsedError;
 
@@ -51,7 +57,12 @@ abstract class $PieceCopyWith<$Res> {
   factory $PieceCopyWith(Piece value, $Res Function(Piece) then) =
       _$PieceCopyWithImpl<$Res>;
   $Res call(
-      {int length, String name, String? id, List<Repetition> repetitions});
+      {int length,
+      int number,
+      String name,
+      int requiredTempo,
+      String? id,
+      List<Repetition> repetitions});
 }
 
 /// @nodoc
@@ -65,7 +76,9 @@ class _$PieceCopyWithImpl<$Res> implements $PieceCopyWith<$Res> {
   @override
   $Res call({
     Object? length = freezed,
+    Object? number = freezed,
     Object? name = freezed,
+    Object? requiredTempo = freezed,
     Object? id = freezed,
     Object? repetitions = freezed,
   }) {
@@ -74,10 +87,18 @@ class _$PieceCopyWithImpl<$Res> implements $PieceCopyWith<$Res> {
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
               as int,
+      number: number == freezed
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as int,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      requiredTempo: requiredTempo == freezed
+          ? _value.requiredTempo
+          : requiredTempo // ignore: cast_nullable_to_non_nullable
+              as int,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -96,7 +117,12 @@ abstract class _$PieceCopyWith<$Res> implements $PieceCopyWith<$Res> {
       __$PieceCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int length, String name, String? id, List<Repetition> repetitions});
+      {int length,
+      int number,
+      String name,
+      int requiredTempo,
+      String? id,
+      List<Repetition> repetitions});
 }
 
 /// @nodoc
@@ -111,7 +137,9 @@ class __$PieceCopyWithImpl<$Res> extends _$PieceCopyWithImpl<$Res>
   @override
   $Res call({
     Object? length = freezed,
+    Object? number = freezed,
     Object? name = freezed,
+    Object? requiredTempo = freezed,
     Object? id = freezed,
     Object? repetitions = freezed,
   }) {
@@ -120,10 +148,18 @@ class __$PieceCopyWithImpl<$Res> extends _$PieceCopyWithImpl<$Res>
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
               as int,
+      number: number == freezed
+          ? _value.number
+          : number // ignore: cast_nullable_to_non_nullable
+              as int,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      requiredTempo: requiredTempo == freezed
+          ? _value.requiredTempo
+          : requiredTempo // ignore: cast_nullable_to_non_nullable
+              as int,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -141,14 +177,20 @@ class __$PieceCopyWithImpl<$Res> extends _$PieceCopyWithImpl<$Res>
 class _$_Piece implements _Piece {
   const _$_Piece(
       {required this.length,
+      required this.number,
       required this.name,
+      required this.requiredTempo,
       this.id,
       this.repetitions = const []});
 
   @override
   final int length;
   @override
+  final int number;
+  @override
   final String name;
+  @override
+  final int requiredTempo;
   @override
   final String? id;
   @JsonKey()
@@ -157,7 +199,7 @@ class _$_Piece implements _Piece {
 
   @override
   String toString() {
-    return 'Piece(length: $length, name: $name, id: $id, repetitions: $repetitions)';
+    return 'Piece(length: $length, number: $number, name: $name, requiredTempo: $requiredTempo, id: $id, repetitions: $repetitions)';
   }
 
   @override
@@ -166,7 +208,10 @@ class _$_Piece implements _Piece {
         (other.runtimeType == runtimeType &&
             other is _Piece &&
             const DeepCollectionEquality().equals(other.length, length) &&
+            const DeepCollectionEquality().equals(other.number, number) &&
             const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.requiredTempo, requiredTempo) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality()
                 .equals(other.repetitions, repetitions));
@@ -176,7 +221,9 @@ class _$_Piece implements _Piece {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(length),
+      const DeepCollectionEquality().hash(number),
       const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(requiredTempo),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(repetitions));
 
@@ -189,14 +236,20 @@ class _$_Piece implements _Piece {
 abstract class _Piece implements Piece {
   const factory _Piece(
       {required int length,
+      required int number,
       required String name,
+      required int requiredTempo,
       String? id,
       List<Repetition> repetitions}) = _$_Piece;
 
   @override
   int get length;
   @override
+  int get number;
+  @override
   String get name;
+  @override
+  int get requiredTempo;
   @override
   String? get id;
   @override

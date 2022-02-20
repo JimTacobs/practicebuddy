@@ -22,32 +22,44 @@ class AddPieceScreen extends HookConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
         child: Form(
           key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              FormTitle(
-                title: 'Composer',
-                showEditIcon: _addPieceState.selectedComposer != null,
-                onEditCb: () {
-                  _addPieceNotifier.unselectComposer();
-                  _addPieceNotifier.unselectWork();
-                },
-              ),
-              if (_addPieceState.selectedComposer == null)
-                const AddComposerForm(),
-              if (_addPieceState.selectedComposer != null)
-                const AddComposerReadonlyInfo(),
-              FormTitle(
-                title: 'Work',
-                showEditIcon: (_addPieceState.selectedWork != null),
-                onEditCb: () {
-                  _addPieceNotifier.unselectWork();
-                },
-              ),
-              if (_addPieceState.selectedWork == null) const AddWorkForm(),
-              if (_addPieceState.selectedWork != null)
-                const Text('Show readonly summary of work here!'),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                FormTitle(
+                  title: 'Composer',
+                  showEditIcon: _addPieceState.selectedComposer != null,
+                  onEditCb: () {
+                    _addPieceNotifier.unselectComposer();
+                    _addPieceNotifier.unselectWork();
+                    _addPieceNotifier.unselectPiece();
+                  },
+                ),
+                if (_addPieceState.selectedComposer == null)
+                  const AddComposerForm(),
+                if (_addPieceState.selectedComposer != null)
+                  const AddComposerReadonlyInfo(),
+                FormTitle(
+                  title: 'Work',
+                  showEditIcon: (_addPieceState.selectedWork != null),
+                  onEditCb: () {
+                    _addPieceNotifier.unselectWork();
+                    _addPieceNotifier.unselectPiece();
+                  },
+                ),
+                if (_addPieceState.selectedWork == null) const AddWorkForm(),
+                if (_addPieceState.selectedWork != null)
+                  const Text('Show readonly summary of work here!'),
+                FormTitle(
+                  title: 'Piece',
+                  showEditIcon: (_addPieceState.selectedPiece != null),
+                  onEditCb: () {
+                    _addPieceNotifier.unselectPiece();
+                  },
+                ),
+                const AddPieceForm(),
+              ],
+            ),
           ),
         ),
       ),

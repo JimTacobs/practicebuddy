@@ -21,6 +21,12 @@ class AddPiece with _$AddPiece {
     required TextEditingController customNumberingSystemController,
     required TextEditingController workNumberController,
     Work? selectedWork,
+
+    /// Piece
+    required TextEditingController pieceController,
+    required TextEditingController pieceNumberController,
+    required TextEditingController pieceTempoController,
+    required TextEditingController pieceLengthController,
     Piece? selectedPiece,
   }) = _AddPiece;
 }

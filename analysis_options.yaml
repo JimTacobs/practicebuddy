@@ -8,6 +8,7 @@ linter:
     directives_ordering: true
     use_setters_to_change_properties: false
     prefer_single_quotes: true
+    prefer_const_declarations: true
     always_declare_return_types: true
     always_put_control_body_on_new_line: false
     prefer_if_elements_to_conditional_expressions: false

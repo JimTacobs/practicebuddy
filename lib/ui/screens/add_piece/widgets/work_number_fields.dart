@@ -30,10 +30,8 @@ class WorkNumberFields extends HookConsumerWidget {
             SizedBox(
               width: 100,
               child: DropdownButton<DropdownValue>(
-                underline: Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
-                  child: Container(height: 1, color: Colors.black54),
-                ),
+                // underline: Container(height: 1, color: Colors.black54),
+                underline: Container(),
                 value: _dropdownValue.value,
                 items: [
                   DropdownMenuItem(
@@ -61,11 +59,14 @@ class WorkNumberFields extends HookConsumerWidget {
                               autofocus: true,
                             ),
                           ),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context, rootNavigator: true).pop();
-                            },
-                            child: Text('Ok'),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context, rootNavigator: true).pop();
+                              },
+                              child: Text('Ok'),
+                            ),
                           ),
                         ],
                       ),
