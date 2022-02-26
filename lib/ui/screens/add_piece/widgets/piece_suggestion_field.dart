@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../../firestore/models/firestore_models.dart';
 import '../../../../state/state_providers.dart';
 import '../../../../util/helpers/jaro_winkler.dart';
+import '../../../../util/validators.dart';
 
 class PieceSuggestionField extends HookConsumerWidget {
   const PieceSuggestionField({
@@ -38,12 +39,13 @@ class PieceSuggestionField extends HookConsumerWidget {
       },
       itemBuilder: (ctx, suggestion) {
         return ListTile(
-            title: Text(suggestion.name),
+          title: Text(suggestion.name),
         );
       },
       onSuggestionSelected: (suggestion) {
         _addPieceNotifier.selectPiece(suggestion);
       },
+      validator: (val) => requiredField(val),
     );
   }
 }

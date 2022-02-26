@@ -12,9 +12,6 @@ class Repetition with _$Repetition {
     /// The measure at which the repetition sign is
     required int lastMeasure,
 
-    /// The measure to continue playing after the repetition
-    required int nextMeasure,
-
     /// The measures which need to be skipped while playing the repetition.
     /// This is required when there's an alternative ending in the repetition.
     @Default([]) List<int> measuresToSkipOnRepetition,

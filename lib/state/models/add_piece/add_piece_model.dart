@@ -27,6 +27,11 @@ class AddPiece with _$AddPiece {
     required TextEditingController pieceNumberController,
     required TextEditingController pieceTempoController,
     required TextEditingController pieceLengthController,
+    required TextEditingController pieceRepetitionFromController,
+    required TextEditingController pieceRepetitionToController,
+    required TextEditingController pieceRepetitionSkipController,
     Piece? selectedPiece,
+    @Default(false) bool containsRepetitions,
+    @Default([]) List<Repetition> repetitions,
   }) = _AddPiece;
 }

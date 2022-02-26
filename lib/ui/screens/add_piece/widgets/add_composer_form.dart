@@ -52,6 +52,7 @@ class AddComposerForm extends HookConsumerWidget {
                 yearController: _dateOfBirthYearController,
                 setDateCallback: (DateTime date) =>
                     _addPieceNotifier.setBirthDate(date),
+                required: true,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 12.0),
@@ -68,7 +69,6 @@ class AddComposerForm extends HookConsumerWidget {
                 yearController: _dateOfDeathYearController,
                 setDateCallback: (DateTime date) =>
                     _addPieceNotifier.setDeathDate(date),
-                lastFieldOfForm: true,
               ),
             ],
           ),

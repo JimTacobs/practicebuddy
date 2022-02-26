@@ -21,12 +21,10 @@ class _$RepetitionTearOff {
   _Repetition call(
       {required int firstMeasure,
       required int lastMeasure,
-      required int nextMeasure,
       List<int> measuresToSkipOnRepetition = const []}) {
     return _Repetition(
       firstMeasure: firstMeasure,
       lastMeasure: lastMeasure,
-      nextMeasure: nextMeasure,
       measuresToSkipOnRepetition: measuresToSkipOnRepetition,
     );
   }
@@ -42,9 +40,6 @@ mixin _$Repetition {
 
   /// The measure at which the repetition sign is
   int get lastMeasure => throw _privateConstructorUsedError;
-
-  /// The measure to continue playing after the repetition
-  int get nextMeasure => throw _privateConstructorUsedError;
 
   /// The measures which need to be skipped while playing the repetition.
   /// This is required when there's an alternative ending in the repetition.
@@ -64,7 +59,6 @@ abstract class $RepetitionCopyWith<$Res> {
   $Res call(
       {int firstMeasure,
       int lastMeasure,
-      int nextMeasure,
       List<int> measuresToSkipOnRepetition});
 }
 
@@ -80,7 +74,6 @@ class _$RepetitionCopyWithImpl<$Res> implements $RepetitionCopyWith<$Res> {
   $Res call({
     Object? firstMeasure = freezed,
     Object? lastMeasure = freezed,
-    Object? nextMeasure = freezed,
     Object? measuresToSkipOnRepetition = freezed,
   }) {
     return _then(_value.copyWith(
@@ -91,10 +84,6 @@ class _$RepetitionCopyWithImpl<$Res> implements $RepetitionCopyWith<$Res> {
       lastMeasure: lastMeasure == freezed
           ? _value.lastMeasure
           : lastMeasure // ignore: cast_nullable_to_non_nullable
-              as int,
-      nextMeasure: nextMeasure == freezed
-          ? _value.nextMeasure
-          : nextMeasure // ignore: cast_nullable_to_non_nullable
               as int,
       measuresToSkipOnRepetition: measuresToSkipOnRepetition == freezed
           ? _value.measuresToSkipOnRepetition
@@ -113,7 +102,6 @@ abstract class _$RepetitionCopyWith<$Res> implements $RepetitionCopyWith<$Res> {
   $Res call(
       {int firstMeasure,
       int lastMeasure,
-      int nextMeasure,
       List<int> measuresToSkipOnRepetition});
 }
 
@@ -131,7 +119,6 @@ class __$RepetitionCopyWithImpl<$Res> extends _$RepetitionCopyWithImpl<$Res>
   $Res call({
     Object? firstMeasure = freezed,
     Object? lastMeasure = freezed,
-    Object? nextMeasure = freezed,
     Object? measuresToSkipOnRepetition = freezed,
   }) {
     return _then(_Repetition(
@@ -142,10 +129,6 @@ class __$RepetitionCopyWithImpl<$Res> extends _$RepetitionCopyWithImpl<$Res>
       lastMeasure: lastMeasure == freezed
           ? _value.lastMeasure
           : lastMeasure // ignore: cast_nullable_to_non_nullable
-              as int,
-      nextMeasure: nextMeasure == freezed
-          ? _value.nextMeasure
-          : nextMeasure // ignore: cast_nullable_to_non_nullable
               as int,
       measuresToSkipOnRepetition: measuresToSkipOnRepetition == freezed
           ? _value.measuresToSkipOnRepetition
@@ -161,7 +144,6 @@ class _$_Repetition implements _Repetition {
   const _$_Repetition(
       {required this.firstMeasure,
       required this.lastMeasure,
-      required this.nextMeasure,
       this.measuresToSkipOnRepetition = const []});
 
   @override
@@ -172,10 +154,6 @@ class _$_Repetition implements _Repetition {
 
   /// The measure at which the repetition sign is
   final int lastMeasure;
-  @override
-
-  /// The measure to continue playing after the repetition
-  final int nextMeasure;
   @JsonKey()
   @override
 
@@ -185,7 +163,7 @@ class _$_Repetition implements _Repetition {
 
   @override
   String toString() {
-    return 'Repetition(firstMeasure: $firstMeasure, lastMeasure: $lastMeasure, nextMeasure: $nextMeasure, measuresToSkipOnRepetition: $measuresToSkipOnRepetition)';
+    return 'Repetition(firstMeasure: $firstMeasure, lastMeasure: $lastMeasure, measuresToSkipOnRepetition: $measuresToSkipOnRepetition)';
   }
 
   @override
@@ -197,8 +175,6 @@ class _$_Repetition implements _Repetition {
                 .equals(other.firstMeasure, firstMeasure) &&
             const DeepCollectionEquality()
                 .equals(other.lastMeasure, lastMeasure) &&
-            const DeepCollectionEquality()
-                .equals(other.nextMeasure, nextMeasure) &&
             const DeepCollectionEquality().equals(
                 other.measuresToSkipOnRepetition, measuresToSkipOnRepetition));
   }
@@ -208,7 +184,6 @@ class _$_Repetition implements _Repetition {
       runtimeType,
       const DeepCollectionEquality().hash(firstMeasure),
       const DeepCollectionEquality().hash(lastMeasure),
-      const DeepCollectionEquality().hash(nextMeasure),
       const DeepCollectionEquality().hash(measuresToSkipOnRepetition));
 
   @JsonKey(ignore: true)
@@ -221,7 +196,6 @@ abstract class _Repetition implements Repetition {
   const factory _Repetition(
       {required int firstMeasure,
       required int lastMeasure,
-      required int nextMeasure,
       List<int> measuresToSkipOnRepetition}) = _$_Repetition;
 
   @override
@@ -232,10 +206,6 @@ abstract class _Repetition implements Repetition {
 
   /// The measure at which the repetition sign is
   int get lastMeasure;
-  @override
-
-  /// The measure to continue playing after the repetition
-  int get nextMeasure;
   @override
 
   /// The measures which need to be skipped while playing the repetition.

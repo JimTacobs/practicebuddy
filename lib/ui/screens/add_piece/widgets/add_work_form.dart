@@ -19,6 +19,7 @@ class AddWorkForm extends HookConsumerWidget {
       children: [
         if (_addPieceState.selectedComposer == null)
           GenericTextFormField(
+            required: true,
             controller: _addPieceState.workController,
             hintText: 'Name',
           ),

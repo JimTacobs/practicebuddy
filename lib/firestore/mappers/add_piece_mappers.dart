@@ -68,7 +68,6 @@ List<Repetition> _mapRepetitions(List<dynamic> docs) {
     repetitions.add(Repetition(
       firstMeasure: doc['firstMeasure'] as int,
       lastMeasure: doc['lastMeasure'] as int,
-      nextMeasure: doc['nextMeasure'] as int,
       measuresToSkipOnRepetition: _mapMeasuresToSkipOnRepetition(
           doc['measuresToSkipOnRepetition'] as List<dynamic>),
     ));

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../util/validators.dart';
+
 class GenericTextFormField extends StatelessWidget {
   const GenericTextFormField({
     required this.controller,
@@ -9,6 +11,7 @@ class GenericTextFormField extends StatelessWidget {
     this.textInputAction = TextInputAction.next,
     this.onChange,
     this.onFieldSubmitted,
+    this.required = false,
   });
 
   final TextEditingController controller;
@@ -18,6 +21,7 @@ class GenericTextFormField extends StatelessWidget {
   final TextInputType keyboardType;
   final TextInputAction textInputAction;
   final void Function(String)? onFieldSubmitted;
+  final bool required;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +41,7 @@ class GenericTextFormField extends StatelessWidget {
         keyboardType: keyboardType,
         textCapitalization: TextCapitalization.words,
         textInputAction: textInputAction,
+        validator: (val) => requiredField(val),
       ),
     );
   }

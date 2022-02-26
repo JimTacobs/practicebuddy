@@ -19,6 +19,9 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
           pieceLengthController: TextEditingController(),
           pieceNumberController: TextEditingController(),
           pieceTempoController: TextEditingController(),
+          pieceRepetitionToController: TextEditingController(),
+          pieceRepetitionSkipController: TextEditingController(),
+          pieceRepetitionFromController: TextEditingController(),
         ));
 
   /// API calls
@@ -185,5 +188,15 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
   void deleteDummyPiece() {
     state.selectedWork!.pieces
         .removeWhere((piece) => piece.name.contains(' - Add new'));
+  }
+
+  void toggleRepetitions(bool val) {
+    state = state.copyWith(
+      containsRepetitions: val,
+    );
+  }
+
+  void addRepetition(Repetition repetition) {
+    state.repetitions.add(repetition);
   }
 }

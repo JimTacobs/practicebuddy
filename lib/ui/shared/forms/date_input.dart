@@ -9,6 +9,7 @@ class DateInput extends StatelessWidget {
     required this.yearController,
     required this.setDateCallback,
     this.lastFieldOfForm = false,
+    this.required = false,
   });
 
   final TextEditingController dayController;
@@ -16,6 +17,7 @@ class DateInput extends StatelessWidget {
   final TextEditingController yearController;
   final void Function(DateTime) setDateCallback;
   final bool lastFieldOfForm;
+  final bool required;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,7 @@ class DateInput extends StatelessWidget {
         SizedBox(
           width: _width * .2,
           child: GenericTextFormField(
+            required: required,
             controller: dayController,
             hintText: 'Day',
             keyboardType: TextInputType.phone,
@@ -45,6 +48,7 @@ class DateInput extends StatelessWidget {
         SizedBox(
           width: _width * .2,
           child: GenericTextFormField(
+            required: required,
             controller: monthController,
             hintText: 'Month',
             keyboardType: TextInputType.phone,
@@ -65,6 +69,7 @@ class DateInput extends StatelessWidget {
         SizedBox(
           width: _width * .2,
           child: GenericTextFormField(
+            required: required,
             controller: yearController,
             hintText: 'Year',
             keyboardType: TextInputType.phone,

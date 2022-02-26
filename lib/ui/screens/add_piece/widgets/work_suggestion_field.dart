@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../../firestore/models/firestore_models.dart';
 import '../../../../state/state_providers.dart';
 import '../../../../util/helpers.dart';
+import '../../../../util/validators/form_validators.dart';
 
 class WorkSuggestionField extends HookConsumerWidget {
   const WorkSuggestionField({
@@ -43,7 +44,7 @@ class WorkSuggestionField extends HookConsumerWidget {
           title: Text(suggestion.name),
         );
       },
-      onSuggestionSelected: (suggestion)  {
+      onSuggestionSelected: (suggestion) {
         _addPieceNotifier.setWork(suggestion);
       },
       animationDuration: Duration(seconds: 0),
@@ -55,6 +56,7 @@ class WorkSuggestionField extends HookConsumerWidget {
         ),
         textCapitalization: TextCapitalization.words,
       ),
+      validator: (val) => requiredField(val),
     );
   }
 }

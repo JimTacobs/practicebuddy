@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../../firestore/models/firestore_models.dart';
 import '../../../../state/state_providers.dart';
 import '../../../../util/helpers.dart';
+import '../../../../util/validators/form_validators.dart';
 
 class ComposerSuggestionField extends HookConsumerWidget {
   const ComposerSuggestionField();
@@ -58,6 +59,7 @@ class ComposerSuggestionField extends HookConsumerWidget {
         ),
         textCapitalization: TextCapitalization.words,
       ),
+      validator: (val) => requiredField(val),
     );
   }
 }

@@ -18,15 +18,18 @@ class AddPieceForm extends HookConsumerWidget {
         if (_addPieceState.selectedWork == null)
           GenericTextFormField(
             controller: _addPieceState.pieceController,
+            required: true,
             hintText: 'Name',
           ),
         if (_addPieceState.selectedWork != null) const PieceSuggestionField(),
         GenericTextFormField(
           controller: _addPieceState.pieceNumberController,
+          required: true,
           hintText: 'Number',
         ),
         GenericTextFormField(
           controller: _addPieceState.pieceLengthController,
+          required: true,
           hintText: 'Length',
         ),
         GenericTextFormField(

@@ -33,7 +33,12 @@ class _$AddPieceTearOff {
       required TextEditingController pieceNumberController,
       required TextEditingController pieceTempoController,
       required TextEditingController pieceLengthController,
-      Piece? selectedPiece}) {
+      required TextEditingController pieceRepetitionFromController,
+      required TextEditingController pieceRepetitionToController,
+      required TextEditingController pieceRepetitionSkipController,
+      Piece? selectedPiece,
+      bool containsRepetitions = false,
+      List<dynamic> repetitions = const []}) {
     return _AddPiece(
       composerLastNameController: composerLastNameController,
       composerFirstNameController: composerFirstNameController,
@@ -49,7 +54,12 @@ class _$AddPieceTearOff {
       pieceNumberController: pieceNumberController,
       pieceTempoController: pieceTempoController,
       pieceLengthController: pieceLengthController,
+      pieceRepetitionFromController: pieceRepetitionFromController,
+      pieceRepetitionToController: pieceRepetitionToController,
+      pieceRepetitionSkipController: pieceRepetitionSkipController,
       selectedPiece: selectedPiece,
+      containsRepetitions: containsRepetitions,
+      repetitions: repetitions,
     );
   }
 }
@@ -87,7 +97,15 @@ mixin _$AddPiece {
       throw _privateConstructorUsedError;
   TextEditingController get pieceLengthController =>
       throw _privateConstructorUsedError;
+  TextEditingController get pieceRepetitionFromController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get pieceRepetitionToController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get pieceRepetitionSkipController =>
+      throw _privateConstructorUsedError;
   Piece? get selectedPiece => throw _privateConstructorUsedError;
+  bool get containsRepetitions => throw _privateConstructorUsedError;
+  List<dynamic> get repetitions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddPieceCopyWith<AddPiece> get copyWith =>
@@ -113,7 +131,12 @@ abstract class $AddPieceCopyWith<$Res> {
       TextEditingController pieceNumberController,
       TextEditingController pieceTempoController,
       TextEditingController pieceLengthController,
-      Piece? selectedPiece});
+      TextEditingController pieceRepetitionFromController,
+      TextEditingController pieceRepetitionToController,
+      TextEditingController pieceRepetitionSkipController,
+      Piece? selectedPiece,
+      bool containsRepetitions,
+      List<dynamic> repetitions});
 
   $ComposerCopyWith<$Res>? get selectedComposer;
   $WorkCopyWith<$Res>? get selectedWork;
@@ -144,7 +167,12 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
     Object? pieceNumberController = freezed,
     Object? pieceTempoController = freezed,
     Object? pieceLengthController = freezed,
+    Object? pieceRepetitionFromController = freezed,
+    Object? pieceRepetitionToController = freezed,
+    Object? pieceRepetitionSkipController = freezed,
     Object? selectedPiece = freezed,
+    Object? containsRepetitions = freezed,
+    Object? repetitions = freezed,
   }) {
     return _then(_value.copyWith(
       composerLastNameController: composerLastNameController == freezed
@@ -204,10 +232,30 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
           ? _value.pieceLengthController
           : pieceLengthController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      pieceRepetitionFromController: pieceRepetitionFromController == freezed
+          ? _value.pieceRepetitionFromController
+          : pieceRepetitionFromController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceRepetitionToController: pieceRepetitionToController == freezed
+          ? _value.pieceRepetitionToController
+          : pieceRepetitionToController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceRepetitionSkipController: pieceRepetitionSkipController == freezed
+          ? _value.pieceRepetitionSkipController
+          : pieceRepetitionSkipController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       selectedPiece: selectedPiece == freezed
           ? _value.selectedPiece
           : selectedPiece // ignore: cast_nullable_to_non_nullable
               as Piece?,
+      containsRepetitions: containsRepetitions == freezed
+          ? _value.containsRepetitions
+          : containsRepetitions // ignore: cast_nullable_to_non_nullable
+              as bool,
+      repetitions: repetitions == freezed
+          ? _value.repetitions
+          : repetitions // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ));
   }
 
@@ -265,7 +313,12 @@ abstract class _$AddPieceCopyWith<$Res> implements $AddPieceCopyWith<$Res> {
       TextEditingController pieceNumberController,
       TextEditingController pieceTempoController,
       TextEditingController pieceLengthController,
-      Piece? selectedPiece});
+      TextEditingController pieceRepetitionFromController,
+      TextEditingController pieceRepetitionToController,
+      TextEditingController pieceRepetitionSkipController,
+      Piece? selectedPiece,
+      bool containsRepetitions,
+      List<dynamic> repetitions});
 
   @override
   $ComposerCopyWith<$Res>? get selectedComposer;
@@ -300,7 +353,12 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
     Object? pieceNumberController = freezed,
     Object? pieceTempoController = freezed,
     Object? pieceLengthController = freezed,
+    Object? pieceRepetitionFromController = freezed,
+    Object? pieceRepetitionToController = freezed,
+    Object? pieceRepetitionSkipController = freezed,
     Object? selectedPiece = freezed,
+    Object? containsRepetitions = freezed,
+    Object? repetitions = freezed,
   }) {
     return _then(_AddPiece(
       composerLastNameController: composerLastNameController == freezed
@@ -360,10 +418,30 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
           ? _value.pieceLengthController
           : pieceLengthController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      pieceRepetitionFromController: pieceRepetitionFromController == freezed
+          ? _value.pieceRepetitionFromController
+          : pieceRepetitionFromController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceRepetitionToController: pieceRepetitionToController == freezed
+          ? _value.pieceRepetitionToController
+          : pieceRepetitionToController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      pieceRepetitionSkipController: pieceRepetitionSkipController == freezed
+          ? _value.pieceRepetitionSkipController
+          : pieceRepetitionSkipController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       selectedPiece: selectedPiece == freezed
           ? _value.selectedPiece
           : selectedPiece // ignore: cast_nullable_to_non_nullable
               as Piece?,
+      containsRepetitions: containsRepetitions == freezed
+          ? _value.containsRepetitions
+          : containsRepetitions // ignore: cast_nullable_to_non_nullable
+              as bool,
+      repetitions: repetitions == freezed
+          ? _value.repetitions
+          : repetitions // ignore: cast_nullable_to_non_nullable
+              as List<dynamic>,
     ));
   }
 }
@@ -386,7 +464,12 @@ class _$_AddPiece implements _AddPiece {
       required this.pieceNumberController,
       required this.pieceTempoController,
       required this.pieceLengthController,
-      this.selectedPiece});
+      required this.pieceRepetitionFromController,
+      required this.pieceRepetitionToController,
+      required this.pieceRepetitionSkipController,
+      this.selectedPiece,
+      this.containsRepetitions = false,
+      this.repetitions = const []});
 
   @override
 
@@ -424,11 +507,23 @@ class _$_AddPiece implements _AddPiece {
   @override
   final TextEditingController pieceLengthController;
   @override
+  final TextEditingController pieceRepetitionFromController;
+  @override
+  final TextEditingController pieceRepetitionToController;
+  @override
+  final TextEditingController pieceRepetitionSkipController;
+  @override
   final Piece? selectedPiece;
+  @JsonKey()
+  @override
+  final bool containsRepetitions;
+  @JsonKey()
+  @override
+  final List<dynamic> repetitions;
 
   @override
   String toString() {
-    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, selectedComposer: $selectedComposer, workController: $workController, customNumberingSystemController: $customNumberingSystemController, workNumberController: $workNumberController, selectedWork: $selectedWork, pieceController: $pieceController, pieceNumberController: $pieceNumberController, pieceTempoController: $pieceTempoController, pieceLengthController: $pieceLengthController, selectedPiece: $selectedPiece)';
+    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, selectedComposer: $selectedComposer, workController: $workController, customNumberingSystemController: $customNumberingSystemController, workNumberController: $workNumberController, selectedWork: $selectedWork, pieceController: $pieceController, pieceNumberController: $pieceNumberController, pieceTempoController: $pieceTempoController, pieceLengthController: $pieceLengthController, pieceRepetitionFromController: $pieceRepetitionFromController, pieceRepetitionToController: $pieceRepetitionToController, pieceRepetitionSkipController: $pieceRepetitionSkipController, selectedPiece: $selectedPiece, containsRepetitions: $containsRepetitions, repetitions: $repetitions)';
   }
 
   @override
@@ -465,28 +560,47 @@ class _$_AddPiece implements _AddPiece {
                 .equals(other.pieceTempoController, pieceTempoController) &&
             const DeepCollectionEquality()
                 .equals(other.pieceLengthController, pieceLengthController) &&
+            const DeepCollectionEquality().equals(
+                other.pieceRepetitionFromController,
+                pieceRepetitionFromController) &&
+            const DeepCollectionEquality().equals(
+                other.pieceRepetitionToController,
+                pieceRepetitionToController) &&
+            const DeepCollectionEquality().equals(
+                other.pieceRepetitionSkipController,
+                pieceRepetitionSkipController) &&
             const DeepCollectionEquality()
-                .equals(other.selectedPiece, selectedPiece));
+                .equals(other.selectedPiece, selectedPiece) &&
+            const DeepCollectionEquality()
+                .equals(other.containsRepetitions, containsRepetitions) &&
+            const DeepCollectionEquality()
+                .equals(other.repetitions, repetitions));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(composerLastNameController),
-      const DeepCollectionEquality().hash(composerFirstNameController),
-      const DeepCollectionEquality().hash(dateOfBirth),
-      const DeepCollectionEquality().hash(dateOfDeath),
-      const DeepCollectionEquality().hash(composers),
-      const DeepCollectionEquality().hash(selectedComposer),
-      const DeepCollectionEquality().hash(workController),
-      const DeepCollectionEquality().hash(customNumberingSystemController),
-      const DeepCollectionEquality().hash(workNumberController),
-      const DeepCollectionEquality().hash(selectedWork),
-      const DeepCollectionEquality().hash(pieceController),
-      const DeepCollectionEquality().hash(pieceNumberController),
-      const DeepCollectionEquality().hash(pieceTempoController),
-      const DeepCollectionEquality().hash(pieceLengthController),
-      const DeepCollectionEquality().hash(selectedPiece));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(composerLastNameController),
+        const DeepCollectionEquality().hash(composerFirstNameController),
+        const DeepCollectionEquality().hash(dateOfBirth),
+        const DeepCollectionEquality().hash(dateOfDeath),
+        const DeepCollectionEquality().hash(composers),
+        const DeepCollectionEquality().hash(selectedComposer),
+        const DeepCollectionEquality().hash(workController),
+        const DeepCollectionEquality().hash(customNumberingSystemController),
+        const DeepCollectionEquality().hash(workNumberController),
+        const DeepCollectionEquality().hash(selectedWork),
+        const DeepCollectionEquality().hash(pieceController),
+        const DeepCollectionEquality().hash(pieceNumberController),
+        const DeepCollectionEquality().hash(pieceTempoController),
+        const DeepCollectionEquality().hash(pieceLengthController),
+        const DeepCollectionEquality().hash(pieceRepetitionFromController),
+        const DeepCollectionEquality().hash(pieceRepetitionToController),
+        const DeepCollectionEquality().hash(pieceRepetitionSkipController),
+        const DeepCollectionEquality().hash(selectedPiece),
+        const DeepCollectionEquality().hash(containsRepetitions),
+        const DeepCollectionEquality().hash(repetitions)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -510,7 +624,12 @@ abstract class _AddPiece implements AddPiece {
       required TextEditingController pieceNumberController,
       required TextEditingController pieceTempoController,
       required TextEditingController pieceLengthController,
-      Piece? selectedPiece}) = _$_AddPiece;
+      required TextEditingController pieceRepetitionFromController,
+      required TextEditingController pieceRepetitionToController,
+      required TextEditingController pieceRepetitionSkipController,
+      Piece? selectedPiece,
+      bool containsRepetitions,
+      List<dynamic> repetitions}) = _$_AddPiece;
 
   @override
 
@@ -547,7 +666,17 @@ abstract class _AddPiece implements AddPiece {
   @override
   TextEditingController get pieceLengthController;
   @override
+  TextEditingController get pieceRepetitionFromController;
+  @override
+  TextEditingController get pieceRepetitionToController;
+  @override
+  TextEditingController get pieceRepetitionSkipController;
+  @override
   Piece? get selectedPiece;
+  @override
+  bool get containsRepetitions;
+  @override
+  List<dynamic> get repetitions;
   @override
   @JsonKey(ignore: true)
   _$AddPieceCopyWith<_AddPiece> get copyWith =>

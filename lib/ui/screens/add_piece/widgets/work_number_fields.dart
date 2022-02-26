@@ -88,6 +88,7 @@ class WorkNumberFields extends HookConsumerWidget {
             SizedBox(
               width: 120,
               child: GenericTextFormField(
+                required: true,
                 controller: _addPieceState.workNumberController,
                 hintText: 'Number',
                 keyboardType: TextInputType.phone,
