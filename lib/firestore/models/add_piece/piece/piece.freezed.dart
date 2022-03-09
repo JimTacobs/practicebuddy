@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Piece _$PieceFromJson(Map<String, dynamic> json) {
+  return _Piece.fromJson(json);
+}
+
 /// @nodoc
 class _$PieceTearOff {
   const _$PieceTearOff();
@@ -34,6 +38,10 @@ class _$PieceTearOff {
       repetitions: repetitions,
     );
   }
+
+  Piece fromJson(Map<String, Object?> json) {
+    return Piece.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -48,6 +56,7 @@ mixin _$Piece {
   String? get id => throw _privateConstructorUsedError;
   List<Repetition> get repetitions => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PieceCopyWith<Piece> get copyWith => throw _privateConstructorUsedError;
 }
@@ -173,7 +182,7 @@ class __$PieceCopyWithImpl<$Res> extends _$PieceCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Piece implements _Piece {
   const _$_Piece(
       {required this.length,
@@ -182,6 +191,9 @@ class _$_Piece implements _Piece {
       required this.requiredTempo,
       this.id,
       this.repetitions = const []});
+
+  factory _$_Piece.fromJson(Map<String, dynamic> json) =>
+      _$$_PieceFromJson(json);
 
   @override
   final int length;
@@ -231,6 +243,11 @@ class _$_Piece implements _Piece {
   @override
   _$PieceCopyWith<_Piece> get copyWith =>
       __$PieceCopyWithImpl<_Piece>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PieceToJson(this);
+  }
 }
 
 abstract class _Piece implements Piece {
@@ -241,6 +258,8 @@ abstract class _Piece implements Piece {
       required int requiredTempo,
       String? id,
       List<Repetition> repetitions}) = _$_Piece;
+
+  factory _Piece.fromJson(Map<String, dynamic> json) = _$_Piece.fromJson;
 
   @override
   int get length;

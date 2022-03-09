@@ -34,6 +34,12 @@ class AddRepetitions extends HookConsumerWidget {
         if (_addPieceState.containsRepetitions)
           Column(
             children: [
+              if (_addPieceState.repetitions.isNotEmpty)
+                ..._addPieceState.repetitions.map((repetition) {
+                  return Text(
+                      'After measure ${repetition.lastMeasure}, go back to measure ${repetition.firstMeasure}${repetition.measuresToSkipOnRepetition.isNotEmpty ? ' and skip measure ${repetition.measuresToSkipOnRepetition[0]}' : '.'}');
+                }).toList(),
+
               /// TODO - Add column of texts of added repetitions
               Row(
                 children: [
@@ -67,9 +73,20 @@ class AddRepetitions extends HookConsumerWidget {
                   ),
                 ],
               ),
-              GenericTextFormField(
-                controller: _addPieceState.pieceRepetitionSkipController,
-                hintText: 'During repetition, skip measure(s)',
+              Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                    child: Text('Skip:'),
+                  ),
+                  SizedBox(
+                    width: _width - 74,
+                    child: GenericTextFormField(
+                      controller: _addPieceState.pieceRepetitionSkipController,
+                      hintText: 'During repetition, skip measure(s)',
+                    ),
+                  ),
+                ],
               ),
               ElevatedButton(
                 onPressed: () {
@@ -80,9 +97,11 @@ class AddRepetitions extends HookConsumerWidget {
                       lastMeasure: int.parse(
                         _addPieceState.pieceRepetitionFromController.text,
                       ),
-                      /// TODO - split measures on all non-string characters
-                      /// and add these.
-                      measuresToSkipOnRepetition: [],
+                      measuresToSkipOnRepetition: [
+                        int.parse(
+                          _addPieceState.pieceRepetitionSkipController.text,
+                        )
+                      ],
                     ),
                   );
                 },

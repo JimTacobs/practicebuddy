@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+UserSettings _$UserSettingsFromJson(Map<String, dynamic> json) {
+  return _UserSettings.fromJson(json);
+}
+
 /// @nodoc
 class _$UserSettingsTearOff {
   const _$UserSettingsTearOff();
@@ -37,6 +41,10 @@ class _$UserSettingsTearOff {
       technicalExercisesDailyTime: technicalExercisesDailyTime,
       instrument: instrument,
     );
+  }
+
+  UserSettings fromJson(Map<String, Object?> json) {
+    return UserSettings.fromJson(json);
   }
 }
 
@@ -82,6 +90,7 @@ mixin _$UserSettings {
   /// the relevant works per composer.
   List<Instrument> get instrument => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserSettingsCopyWith<UserSettings> get copyWith =>
       throw _privateConstructorUsedError;
@@ -236,7 +245,7 @@ class __$UserSettingsCopyWithImpl<$Res> extends _$UserSettingsCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_UserSettings implements _UserSettings {
   const _$_UserSettings(
       {this.studyPiecesBackwards = true,
@@ -247,6 +256,9 @@ class _$_UserSettings implements _UserSettings {
       this.startWithTechnicalExercises = true,
       this.technicalExercisesDailyTime = 15,
       required this.instrument});
+
+  factory _$_UserSettings.fromJson(Map<String, dynamic> json) =>
+      _$$_UserSettingsFromJson(json);
 
   @JsonKey()
   @override
@@ -346,6 +358,11 @@ class _$_UserSettings implements _UserSettings {
   @override
   _$UserSettingsCopyWith<_UserSettings> get copyWith =>
       __$UserSettingsCopyWithImpl<_UserSettings>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UserSettingsToJson(this);
+  }
 }
 
 abstract class _UserSettings implements UserSettings {
@@ -358,6 +375,9 @@ abstract class _UserSettings implements UserSettings {
       bool startWithTechnicalExercises,
       int technicalExercisesDailyTime,
       required List<Instrument> instrument}) = _$_UserSettings;
+
+  factory _UserSettings.fromJson(Map<String, dynamic> json) =
+      _$_UserSettings.fromJson;
 
   @override
 

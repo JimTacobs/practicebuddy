@@ -1,5 +1,10 @@
 # practice_buddy
 
+flutter packages pub run build_runner build --delete-conflicting-outputs
+
+Freezed issue that describes the json annotation madness:
+https://github.com/rrousselGit/freezed/issues/428
+
 A new Flutter project.
 
 ## Getting Started

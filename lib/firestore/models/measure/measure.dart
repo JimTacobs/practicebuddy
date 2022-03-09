@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../firestore_helpers.dart';
 
 part 'measure.freezed.dart';
+part 'measure.g.dart';
 
 @freezed
 class Measure with _$Measure {
@@ -10,15 +12,15 @@ class Measure with _$Measure {
     required int measureNo,
 
     /// The id of the piece.
-    required UniqueKey pieceId,
+    required String pieceId,
 
     /// A DateTime that indicates when the user has to practice this
     /// measure.
-    required DateTime dueDate,
+    @TimestampConverter() required DateTime dueDate,
 
     /// A list of datetimes which indicate when the user practiced this
     /// measure.
-    required List<DateTime> practiceDates,
+    @TimestampListConverter() required List<DateTime> practiceDates,
 
     /// The metronome tempo at which the user can play this measure with
     /// confidence. As long as this is null, the user must practice the
@@ -37,4 +39,5 @@ class Measure with _$Measure {
     /// specifically.
     required int qualityOfMemorization,
   }) = _Measure;
+  factory Measure.fromJson(Map<String, dynamic> json) => _$MeasureFromJson(json);
 }

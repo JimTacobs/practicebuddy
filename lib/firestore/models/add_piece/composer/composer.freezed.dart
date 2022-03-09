@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Composer _$ComposerFromJson(Map<String, dynamic> json) {
+  return _Composer.fromJson(json);
+}
+
 /// @nodoc
 class _$ComposerTearOff {
   const _$ComposerTearOff();
@@ -21,9 +25,9 @@ class _$ComposerTearOff {
   _Composer call(
       {required String firstNames,
       required String lastName,
-      required DateTime dateOfBirth,
-      required DateTime? dateOfDeath,
-      required List<Work> works,
+      @TimestampConverter() required DateTime dateOfBirth,
+      @TimestampNullableConverter() required DateTime? dateOfDeath,
+      @WorkListConverter() List<Work> works = const [],
       required String numberingSystem,
       String? id}) {
     return _Composer(
@@ -36,6 +40,10 @@ class _$ComposerTearOff {
       id: id,
     );
   }
+
+  Composer fromJson(Map<String, Object?> json) {
+    return Composer.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -45,12 +53,16 @@ const $Composer = _$ComposerTearOff();
 mixin _$Composer {
   String get firstNames => throw _privateConstructorUsedError;
   String get lastName => throw _privateConstructorUsedError;
+  @TimestampConverter()
   DateTime get dateOfBirth => throw _privateConstructorUsedError;
+  @TimestampNullableConverter()
   DateTime? get dateOfDeath => throw _privateConstructorUsedError;
+  @WorkListConverter()
   List<Work> get works => throw _privateConstructorUsedError;
   String get numberingSystem => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ComposerCopyWith<Composer> get copyWith =>
       throw _privateConstructorUsedError;
@@ -63,9 +75,9 @@ abstract class $ComposerCopyWith<$Res> {
   $Res call(
       {String firstNames,
       String lastName,
-      DateTime dateOfBirth,
-      DateTime? dateOfDeath,
-      List<Work> works,
+      @TimestampConverter() DateTime dateOfBirth,
+      @TimestampNullableConverter() DateTime? dateOfDeath,
+      @WorkListConverter() List<Work> works,
       String numberingSystem,
       String? id});
 }
@@ -129,9 +141,9 @@ abstract class _$ComposerCopyWith<$Res> implements $ComposerCopyWith<$Res> {
   $Res call(
       {String firstNames,
       String lastName,
-      DateTime dateOfBirth,
-      DateTime? dateOfDeath,
-      List<Work> works,
+      @TimestampConverter() DateTime dateOfBirth,
+      @TimestampNullableConverter() DateTime? dateOfDeath,
+      @WorkListConverter() List<Work> works,
       String numberingSystem,
       String? id});
 }
@@ -189,26 +201,33 @@ class __$ComposerCopyWithImpl<$Res> extends _$ComposerCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Composer implements _Composer {
   const _$_Composer(
       {required this.firstNames,
       required this.lastName,
-      required this.dateOfBirth,
-      required this.dateOfDeath,
-      required this.works,
+      @TimestampConverter() required this.dateOfBirth,
+      @TimestampNullableConverter() required this.dateOfDeath,
+      @WorkListConverter() this.works = const [],
       required this.numberingSystem,
       this.id});
+
+  factory _$_Composer.fromJson(Map<String, dynamic> json) =>
+      _$$_ComposerFromJson(json);
 
   @override
   final String firstNames;
   @override
   final String lastName;
   @override
+  @TimestampConverter()
   final DateTime dateOfBirth;
   @override
+  @TimestampNullableConverter()
   final DateTime? dateOfDeath;
+  @JsonKey()
   @override
+  @WorkListConverter()
   final List<Work> works;
   @override
   final String numberingSystem;
@@ -253,27 +272,37 @@ class _$_Composer implements _Composer {
   @override
   _$ComposerCopyWith<_Composer> get copyWith =>
       __$ComposerCopyWithImpl<_Composer>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ComposerToJson(this);
+  }
 }
 
 abstract class _Composer implements Composer {
   const factory _Composer(
       {required String firstNames,
       required String lastName,
-      required DateTime dateOfBirth,
-      required DateTime? dateOfDeath,
-      required List<Work> works,
+      @TimestampConverter() required DateTime dateOfBirth,
+      @TimestampNullableConverter() required DateTime? dateOfDeath,
+      @WorkListConverter() List<Work> works,
       required String numberingSystem,
       String? id}) = _$_Composer;
+
+  factory _Composer.fromJson(Map<String, dynamic> json) = _$_Composer.fromJson;
 
   @override
   String get firstNames;
   @override
   String get lastName;
   @override
+  @TimestampConverter()
   DateTime get dateOfBirth;
   @override
+  @TimestampNullableConverter()
   DateTime? get dateOfDeath;
   @override
+  @WorkListConverter()
   List<Work> get works;
   @override
   String get numberingSystem;

@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../core/enums.dart';
 
 part 'user_settings.freezed.dart';
+part 'user_settings.g.dart';
 
 @freezed
 class UserSettings with _$UserSettings {
@@ -44,4 +45,5 @@ class UserSettings with _$UserSettings {
     /// the relevant works per composer.
     required List<Instrument> instrument,
   }) = _UserSettings;
+  factory UserSettings.fromJson(Map<String, dynamic> json) => _$UserSettingsFromJson(json);
 }

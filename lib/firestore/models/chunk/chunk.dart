@@ -1,13 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:practice_buddy/firestore/firestore_helpers.dart';
 
 part 'chunk.freezed.dart';
+part 'chunk.g.dart';
 
 @freezed
 class Chunk with _$Chunk {
   const factory Chunk({
     /// The unique ID of this chunk, used to write back to Firestore
-    required UniqueKey id,
+    required String id,
 
     /// The measures that this chunk includes
     required List<int> measures,
@@ -15,7 +18,7 @@ class Chunk with _$Chunk {
     /// The first date on which this chunk is due. This is important for ensuring
     /// a chunk that's has been due for 2 days can be prioritised over a chunk
     /// that's only due today.
-    required DateTime dueOn,
+    @TimestampConverter() required DateTime dueOn,
 
     /// The tempo at which the user should be able to successfully play this
     /// chunk, if the user wishes to advance all the measures within.
@@ -28,10 +31,11 @@ class Chunk with _$Chunk {
 
     /// Used when writing back to the Firestore, it indicates when the user
     /// started practicing this chunk.
-    DateTime? startedAt,
+    @TimestampNullableConverter() DateTime? startedAt,
 
     /// Used when writing back to the Firestore, it indicates when the user
     /// finished practicing the chunk.
-    DateTime? finishedAt,
+    @TimestampNullableConverter() DateTime? finishedAt,
   }) = _Chunk;
+  factory Chunk.fromJson(Map<String, dynamic> json) => _$ChunkFromJson(json);
 }

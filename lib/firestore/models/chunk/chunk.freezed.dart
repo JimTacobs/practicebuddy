@@ -14,18 +14,22 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Chunk _$ChunkFromJson(Map<String, dynamic> json) {
+  return _Chunk.fromJson(json);
+}
+
 /// @nodoc
 class _$ChunkTearOff {
   const _$ChunkTearOff();
 
   _Chunk call(
-      {required UniqueKey id,
+      {required String id,
       required List<int> measures,
-      required DateTime dueOn,
+      @TimestampConverter() required DateTime dueOn,
       required int tempo,
       required bool metronomeRequired,
-      DateTime? startedAt,
-      DateTime? finishedAt}) {
+      @TimestampNullableConverter() DateTime? startedAt,
+      @TimestampNullableConverter() DateTime? finishedAt}) {
     return _Chunk(
       id: id,
       measures: measures,
@@ -36,6 +40,10 @@ class _$ChunkTearOff {
       finishedAt: finishedAt,
     );
   }
+
+  Chunk fromJson(Map<String, Object?> json) {
+    return Chunk.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -44,7 +52,7 @@ const $Chunk = _$ChunkTearOff();
 /// @nodoc
 mixin _$Chunk {
   /// The unique ID of this chunk, used to write back to Firestore
-  UniqueKey get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
 
   /// The measures that this chunk includes
   List<int> get measures => throw _privateConstructorUsedError;
@@ -52,6 +60,7 @@ mixin _$Chunk {
   /// The first date on which this chunk is due. This is important for ensuring
   /// a chunk that's has been due for 2 days can be prioritised over a chunk
   /// that's only due today.
+  @TimestampConverter()
   DateTime get dueOn => throw _privateConstructorUsedError;
 
   /// The tempo at which the user should be able to successfully play this
@@ -65,12 +74,15 @@ mixin _$Chunk {
 
   /// Used when writing back to the Firestore, it indicates when the user
   /// started practicing this chunk.
+  @TimestampNullableConverter()
   DateTime? get startedAt => throw _privateConstructorUsedError;
 
   /// Used when writing back to the Firestore, it indicates when the user
   /// finished practicing the chunk.
+  @TimestampNullableConverter()
   DateTime? get finishedAt => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ChunkCopyWith<Chunk> get copyWith => throw _privateConstructorUsedError;
 }
@@ -80,13 +92,13 @@ abstract class $ChunkCopyWith<$Res> {
   factory $ChunkCopyWith(Chunk value, $Res Function(Chunk) then) =
       _$ChunkCopyWithImpl<$Res>;
   $Res call(
-      {UniqueKey id,
+      {String id,
       List<int> measures,
-      DateTime dueOn,
+      @TimestampConverter() DateTime dueOn,
       int tempo,
       bool metronomeRequired,
-      DateTime? startedAt,
-      DateTime? finishedAt});
+      @TimestampNullableConverter() DateTime? startedAt,
+      @TimestampNullableConverter() DateTime? finishedAt});
 }
 
 /// @nodoc
@@ -111,7 +123,7 @@ class _$ChunkCopyWithImpl<$Res> implements $ChunkCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as UniqueKey,
+              as String,
       measures: measures == freezed
           ? _value.measures
           : measures // ignore: cast_nullable_to_non_nullable
@@ -146,13 +158,13 @@ abstract class _$ChunkCopyWith<$Res> implements $ChunkCopyWith<$Res> {
       __$ChunkCopyWithImpl<$Res>;
   @override
   $Res call(
-      {UniqueKey id,
+      {String id,
       List<int> measures,
-      DateTime dueOn,
+      @TimestampConverter() DateTime dueOn,
       int tempo,
       bool metronomeRequired,
-      DateTime? startedAt,
-      DateTime? finishedAt});
+      @TimestampNullableConverter() DateTime? startedAt,
+      @TimestampNullableConverter() DateTime? finishedAt});
 }
 
 /// @nodoc
@@ -178,7 +190,7 @@ class __$ChunkCopyWithImpl<$Res> extends _$ChunkCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as UniqueKey,
+              as String,
       measures: measures == freezed
           ? _value.measures
           : measures // ignore: cast_nullable_to_non_nullable
@@ -208,21 +220,24 @@ class __$ChunkCopyWithImpl<$Res> extends _$ChunkCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Chunk implements _Chunk {
   const _$_Chunk(
       {required this.id,
       required this.measures,
-      required this.dueOn,
+      @TimestampConverter() required this.dueOn,
       required this.tempo,
       required this.metronomeRequired,
-      this.startedAt,
-      this.finishedAt});
+      @TimestampNullableConverter() this.startedAt,
+      @TimestampNullableConverter() this.finishedAt});
+
+  factory _$_Chunk.fromJson(Map<String, dynamic> json) =>
+      _$$_ChunkFromJson(json);
 
   @override
 
   /// The unique ID of this chunk, used to write back to Firestore
-  final UniqueKey id;
+  final String id;
   @override
 
   /// The measures that this chunk includes
@@ -232,6 +247,7 @@ class _$_Chunk implements _Chunk {
   /// The first date on which this chunk is due. This is important for ensuring
   /// a chunk that's has been due for 2 days can be prioritised over a chunk
   /// that's only due today.
+  @TimestampConverter()
   final DateTime dueOn;
   @override
 
@@ -248,11 +264,13 @@ class _$_Chunk implements _Chunk {
 
   /// Used when writing back to the Firestore, it indicates when the user
   /// started practicing this chunk.
+  @TimestampNullableConverter()
   final DateTime? startedAt;
   @override
 
   /// Used when writing back to the Firestore, it indicates when the user
   /// finished practicing the chunk.
+  @TimestampNullableConverter()
   final DateTime? finishedAt;
 
   @override
@@ -291,22 +309,29 @@ class _$_Chunk implements _Chunk {
   @override
   _$ChunkCopyWith<_Chunk> get copyWith =>
       __$ChunkCopyWithImpl<_Chunk>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_ChunkToJson(this);
+  }
 }
 
 abstract class _Chunk implements Chunk {
   const factory _Chunk(
-      {required UniqueKey id,
+      {required String id,
       required List<int> measures,
-      required DateTime dueOn,
+      @TimestampConverter() required DateTime dueOn,
       required int tempo,
       required bool metronomeRequired,
-      DateTime? startedAt,
-      DateTime? finishedAt}) = _$_Chunk;
+      @TimestampNullableConverter() DateTime? startedAt,
+      @TimestampNullableConverter() DateTime? finishedAt}) = _$_Chunk;
+
+  factory _Chunk.fromJson(Map<String, dynamic> json) = _$_Chunk.fromJson;
 
   @override
 
   /// The unique ID of this chunk, used to write back to Firestore
-  UniqueKey get id;
+  String get id;
   @override
 
   /// The measures that this chunk includes
@@ -316,6 +341,7 @@ abstract class _Chunk implements Chunk {
   /// The first date on which this chunk is due. This is important for ensuring
   /// a chunk that's has been due for 2 days can be prioritised over a chunk
   /// that's only due today.
+  @TimestampConverter()
   DateTime get dueOn;
   @override
 
@@ -332,11 +358,13 @@ abstract class _Chunk implements Chunk {
 
   /// Used when writing back to the Firestore, it indicates when the user
   /// started practicing this chunk.
+  @TimestampNullableConverter()
   DateTime? get startedAt;
   @override
 
   /// Used when writing back to the Firestore, it indicates when the user
   /// finished practicing the chunk.
+  @TimestampNullableConverter()
   DateTime? get finishedAt;
   @override
   @JsonKey(ignore: true)

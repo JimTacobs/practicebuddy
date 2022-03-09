@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 
 part 'repetition.freezed.dart';
+part 'repetition.g.dart';
 
 @freezed
 class Repetition with _$Repetition {
@@ -17,4 +18,6 @@ class Repetition with _$Repetition {
     @Default([]) List<int> measuresToSkipOnRepetition,
 
   }) = _Repetition;
+
+  factory Repetition.fromJson(Map<String, dynamic> json) => _$RepetitionFromJson(json);
 }

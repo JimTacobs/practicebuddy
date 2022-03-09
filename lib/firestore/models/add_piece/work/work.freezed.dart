@@ -14,13 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Work _$WorkFromJson(Map<String, dynamic> json) {
+  return _Work.fromJson(json);
+}
+
 /// @nodoc
 class _$WorkTearOff {
   const _$WorkTearOff();
 
   _Work call(
       {required String name,
-      required WorkNumber opusNo,
+      @WorkNumberConverter() required WorkNumber opusNo,
       List<Piece> pieces = const [],
       required List<Instrument> instruments,
       String? id}) {
@@ -32,6 +36,10 @@ class _$WorkTearOff {
       id: id,
     );
   }
+
+  Work fromJson(Map<String, Object?> json) {
+    return Work.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -40,6 +48,7 @@ const $Work = _$WorkTearOff();
 /// @nodoc
 mixin _$Work {
   String get name => throw _privateConstructorUsedError;
+  @WorkNumberConverter()
   WorkNumber get opusNo => throw _privateConstructorUsedError;
 
   /// All the pieces that the work consists of
@@ -49,6 +58,7 @@ mixin _$Work {
   List<Instrument> get instruments => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $WorkCopyWith<Work> get copyWith => throw _privateConstructorUsedError;
 }
@@ -59,10 +69,12 @@ abstract class $WorkCopyWith<$Res> {
       _$WorkCopyWithImpl<$Res>;
   $Res call(
       {String name,
-      WorkNumber opusNo,
+      @WorkNumberConverter() WorkNumber opusNo,
       List<Piece> pieces,
       List<Instrument> instruments,
       String? id});
+
+  $WorkNumberCopyWith<$Res> get opusNo;
 }
 
 /// @nodoc
@@ -104,6 +116,13 @@ class _$WorkCopyWithImpl<$Res> implements $WorkCopyWith<$Res> {
               as String?,
     ));
   }
+
+  @override
+  $WorkNumberCopyWith<$Res> get opusNo {
+    return $WorkNumberCopyWith<$Res>(_value.opusNo, (value) {
+      return _then(_value.copyWith(opusNo: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -113,10 +132,13 @@ abstract class _$WorkCopyWith<$Res> implements $WorkCopyWith<$Res> {
   @override
   $Res call(
       {String name,
-      WorkNumber opusNo,
+      @WorkNumberConverter() WorkNumber opusNo,
       List<Piece> pieces,
       List<Instrument> instruments,
       String? id});
+
+  @override
+  $WorkNumberCopyWith<$Res> get opusNo;
 }
 
 /// @nodoc
@@ -162,18 +184,21 @@ class __$WorkCopyWithImpl<$Res> extends _$WorkCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Work implements _Work {
   const _$_Work(
       {required this.name,
-      required this.opusNo,
+      @WorkNumberConverter() required this.opusNo,
       this.pieces = const [],
       required this.instruments,
       this.id});
 
+  factory _$_Work.fromJson(Map<String, dynamic> json) => _$$_WorkFromJson(json);
+
   @override
   final String name;
   @override
+  @WorkNumberConverter()
   final WorkNumber opusNo;
   @JsonKey()
   @override
@@ -218,19 +243,27 @@ class _$_Work implements _Work {
   @override
   _$WorkCopyWith<_Work> get copyWith =>
       __$WorkCopyWithImpl<_Work>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_WorkToJson(this);
+  }
 }
 
 abstract class _Work implements Work {
   const factory _Work(
       {required String name,
-      required WorkNumber opusNo,
+      @WorkNumberConverter() required WorkNumber opusNo,
       List<Piece> pieces,
       required List<Instrument> instruments,
       String? id}) = _$_Work;
 
+  factory _Work.fromJson(Map<String, dynamic> json) = _$_Work.fromJson;
+
   @override
   String get name;
   @override
+  @WorkNumberConverter()
   WorkNumber get opusNo;
   @override
 

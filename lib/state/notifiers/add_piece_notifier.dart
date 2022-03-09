@@ -24,18 +24,31 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
           pieceRepetitionFromController: TextEditingController(),
         ));
 
+  final _composerNamesRef = FirebaseFirestore.instance
+      .collection('composerNames')
+      .withConverter<Composer>(
+        fromFirestore: (snapshot, _) => Composer.fromJson(snapshot.data()!),
+        toFirestore: (composer, _) => composer.toJson(),
+      );
+
+  final _composersRef = FirebaseFirestore.instance
+      .collection('Composers')
+      .withConverter<Composer>(
+        fromFirestore: (snapshot, _) => Composer.fromJson(snapshot.data()!),
+        toFirestore: (composer, _) => composer.toJson(),
+      );
+
+  Future<void> addPiece() async {
+    if (state.selectedComposer == null) {}
+  }
+
   /// API calls
   Future<void> getComposers() async {
-    CollectionReference composersCollection =
-        FirebaseFirestore.instance.collection('composerNames');
-
-    final composersList = <Composer>[];
-    await composersCollection.get().then((QuerySnapshot snapshot) {
-      for (final doc in snapshot.docs) {
-        final _doc = mapQueryDoc(doc);
-        composersList.add(mapComposer(_doc, doc.id));
-      }
-    });
+    List<Composer> composersList =
+        await _composerNamesRef.get().then((snapshot) => snapshot.docs.map((e) {
+              Composer _composer = e.data().copyWith(id: e.id);
+              return _composer;
+            }).toList());
 
     state = state.copyWith(
       composers: composersList,
@@ -43,18 +56,16 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
   }
 
   Future<void> getComposerWorks(String id) async {
-    CollectionReference composersCollection =
-        FirebaseFirestore.instance.collection('Composers');
+    List<Work> _composerWorks = await _composersRef
+        .doc(id)
+        .get()
+        .then((snapshot) => snapshot.data()!.works);
 
-    await composersCollection.doc(id).get().then((DocumentSnapshot snapshot) {
-      final _doc = mapDoc(snapshot);
-      final _works = mapObjectList(_doc['works'] as List<dynamic>);
-
-      state = state.copyWith(
-          selectedComposer: state.selectedComposer!.copyWith(
-        works: mapWorks(_works),
-      ));
-    });
+    state = state.copyWith(
+      selectedComposer: state.selectedComposer!.copyWith(
+        works: _composerWorks,
+      ),
+    );
   }
 
   /// Composer first and last name selection.
@@ -141,7 +152,7 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
       Work(
         name: '$workName - Add new',
         instruments: [],
-        opusNo: WorkNumber('', 0),
+        opusNo: WorkNumber(numberingSystem: '', number: 0),
         id: '',
         pieces: [],
       ),
@@ -197,6 +208,11 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
   }
 
   void addRepetition(Repetition repetition) {
-    state.repetitions.add(repetition);
+    state = state.copyWith(
+      repetitions: [
+        ...state.repetitions,
+        repetition,
+      ],
+    );
   }
 }

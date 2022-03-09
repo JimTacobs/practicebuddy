@@ -38,7 +38,7 @@ class _$AddPieceTearOff {
       required TextEditingController pieceRepetitionSkipController,
       Piece? selectedPiece,
       bool containsRepetitions = false,
-      List<dynamic> repetitions = const []}) {
+      List<Repetition> repetitions = const []}) {
     return _AddPiece(
       composerLastNameController: composerLastNameController,
       composerFirstNameController: composerFirstNameController,
@@ -105,7 +105,7 @@ mixin _$AddPiece {
       throw _privateConstructorUsedError;
   Piece? get selectedPiece => throw _privateConstructorUsedError;
   bool get containsRepetitions => throw _privateConstructorUsedError;
-  List<dynamic> get repetitions => throw _privateConstructorUsedError;
+  List<Repetition> get repetitions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddPieceCopyWith<AddPiece> get copyWith =>
@@ -136,7 +136,7 @@ abstract class $AddPieceCopyWith<$Res> {
       TextEditingController pieceRepetitionSkipController,
       Piece? selectedPiece,
       bool containsRepetitions,
-      List<dynamic> repetitions});
+      List<Repetition> repetitions});
 
   $ComposerCopyWith<$Res>? get selectedComposer;
   $WorkCopyWith<$Res>? get selectedWork;
@@ -255,7 +255,7 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
       repetitions: repetitions == freezed
           ? _value.repetitions
           : repetitions // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<Repetition>,
     ));
   }
 
@@ -318,7 +318,7 @@ abstract class _$AddPieceCopyWith<$Res> implements $AddPieceCopyWith<$Res> {
       TextEditingController pieceRepetitionSkipController,
       Piece? selectedPiece,
       bool containsRepetitions,
-      List<dynamic> repetitions});
+      List<Repetition> repetitions});
 
   @override
   $ComposerCopyWith<$Res>? get selectedComposer;
@@ -441,7 +441,7 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
       repetitions: repetitions == freezed
           ? _value.repetitions
           : repetitions // ignore: cast_nullable_to_non_nullable
-              as List<dynamic>,
+              as List<Repetition>,
     ));
   }
 }
@@ -519,7 +519,7 @@ class _$_AddPiece implements _AddPiece {
   final bool containsRepetitions;
   @JsonKey()
   @override
-  final List<dynamic> repetitions;
+  final List<Repetition> repetitions;
 
   @override
   String toString() {
@@ -629,7 +629,7 @@ abstract class _AddPiece implements AddPiece {
       required TextEditingController pieceRepetitionSkipController,
       Piece? selectedPiece,
       bool containsRepetitions,
-      List<dynamic> repetitions}) = _$_AddPiece;
+      List<Repetition> repetitions}) = _$_AddPiece;
 
   @override
 
@@ -676,7 +676,7 @@ abstract class _AddPiece implements AddPiece {
   @override
   bool get containsRepetitions;
   @override
-  List<dynamic> get repetitions;
+  List<Repetition> get repetitions;
   @override
   @JsonKey(ignore: true)
   _$AddPieceCopyWith<_AddPiece> get copyWith =>

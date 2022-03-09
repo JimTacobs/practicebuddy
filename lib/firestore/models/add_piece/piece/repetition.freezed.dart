@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Repetition _$RepetitionFromJson(Map<String, dynamic> json) {
+  return _Repetition.fromJson(json);
+}
+
 /// @nodoc
 class _$RepetitionTearOff {
   const _$RepetitionTearOff();
@@ -27,6 +31,10 @@ class _$RepetitionTearOff {
       lastMeasure: lastMeasure,
       measuresToSkipOnRepetition: measuresToSkipOnRepetition,
     );
+  }
+
+  Repetition fromJson(Map<String, Object?> json) {
+    return Repetition.fromJson(json);
   }
 }
 
@@ -46,6 +54,7 @@ mixin _$Repetition {
   List<int> get measuresToSkipOnRepetition =>
       throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RepetitionCopyWith<Repetition> get copyWith =>
       throw _privateConstructorUsedError;
@@ -139,12 +148,15 @@ class __$RepetitionCopyWithImpl<$Res> extends _$RepetitionCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Repetition implements _Repetition {
   const _$_Repetition(
       {required this.firstMeasure,
       required this.lastMeasure,
       this.measuresToSkipOnRepetition = const []});
+
+  factory _$_Repetition.fromJson(Map<String, dynamic> json) =>
+      _$$_RepetitionFromJson(json);
 
   @override
 
@@ -190,6 +202,11 @@ class _$_Repetition implements _Repetition {
   @override
   _$RepetitionCopyWith<_Repetition> get copyWith =>
       __$RepetitionCopyWithImpl<_Repetition>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_RepetitionToJson(this);
+  }
 }
 
 abstract class _Repetition implements Repetition {
@@ -197,6 +214,9 @@ abstract class _Repetition implements Repetition {
       {required int firstMeasure,
       required int lastMeasure,
       List<int> measuresToSkipOnRepetition}) = _$_Repetition;
+
+  factory _Repetition.fromJson(Map<String, dynamic> json) =
+      _$_Repetition.fromJson;
 
   @override
 

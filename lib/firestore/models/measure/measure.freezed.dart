@@ -14,15 +14,19 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Measure _$MeasureFromJson(Map<String, dynamic> json) {
+  return _Measure.fromJson(json);
+}
+
 /// @nodoc
 class _$MeasureTearOff {
   const _$MeasureTearOff();
 
   _Measure call(
       {required int measureNo,
-      required UniqueKey pieceId,
-      required DateTime dueDate,
-      required List<DateTime> practiceDates,
+      required String pieceId,
+      @TimestampConverter() required DateTime dueDate,
+      @TimestampListConverter() required List<DateTime> practiceDates,
       required int? tempo,
       required int recentQualityOfPractice,
       required int qualityOfMemorization}) {
@@ -36,6 +40,10 @@ class _$MeasureTearOff {
       qualityOfMemorization: qualityOfMemorization,
     );
   }
+
+  Measure fromJson(Map<String, Object?> json) {
+    return Measure.fromJson(json);
+  }
 }
 
 /// @nodoc
@@ -47,14 +55,16 @@ mixin _$Measure {
   int get measureNo => throw _privateConstructorUsedError;
 
   /// The id of the piece.
-  UniqueKey get pieceId => throw _privateConstructorUsedError;
+  String get pieceId => throw _privateConstructorUsedError;
 
   /// A DateTime that indicates when the user has to practice this
   /// measure.
+  @TimestampConverter()
   DateTime get dueDate => throw _privateConstructorUsedError;
 
   /// A list of datetimes which indicate when the user practiced this
   /// measure.
+  @TimestampListConverter()
   List<DateTime> get practiceDates => throw _privateConstructorUsedError;
 
   /// The metronome tempo at which the user can play this measure with
@@ -74,6 +84,7 @@ mixin _$Measure {
   /// specifically.
   int get qualityOfMemorization => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MeasureCopyWith<Measure> get copyWith => throw _privateConstructorUsedError;
 }
@@ -84,9 +95,9 @@ abstract class $MeasureCopyWith<$Res> {
       _$MeasureCopyWithImpl<$Res>;
   $Res call(
       {int measureNo,
-      UniqueKey pieceId,
-      DateTime dueDate,
-      List<DateTime> practiceDates,
+      String pieceId,
+      @TimestampConverter() DateTime dueDate,
+      @TimestampListConverter() List<DateTime> practiceDates,
       int? tempo,
       int recentQualityOfPractice,
       int qualityOfMemorization});
@@ -118,7 +129,7 @@ class _$MeasureCopyWithImpl<$Res> implements $MeasureCopyWith<$Res> {
       pieceId: pieceId == freezed
           ? _value.pieceId
           : pieceId // ignore: cast_nullable_to_non_nullable
-              as UniqueKey,
+              as String,
       dueDate: dueDate == freezed
           ? _value.dueDate
           : dueDate // ignore: cast_nullable_to_non_nullable
@@ -150,9 +161,9 @@ abstract class _$MeasureCopyWith<$Res> implements $MeasureCopyWith<$Res> {
   @override
   $Res call(
       {int measureNo,
-      UniqueKey pieceId,
-      DateTime dueDate,
-      List<DateTime> practiceDates,
+      String pieceId,
+      @TimestampConverter() DateTime dueDate,
+      @TimestampListConverter() List<DateTime> practiceDates,
       int? tempo,
       int recentQualityOfPractice,
       int qualityOfMemorization});
@@ -185,7 +196,7 @@ class __$MeasureCopyWithImpl<$Res> extends _$MeasureCopyWithImpl<$Res>
       pieceId: pieceId == freezed
           ? _value.pieceId
           : pieceId // ignore: cast_nullable_to_non_nullable
-              as UniqueKey,
+              as String,
       dueDate: dueDate == freezed
           ? _value.dueDate
           : dueDate // ignore: cast_nullable_to_non_nullable
@@ -211,16 +222,19 @@ class __$MeasureCopyWithImpl<$Res> extends _$MeasureCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Measure implements _Measure {
   const _$_Measure(
       {required this.measureNo,
       required this.pieceId,
-      required this.dueDate,
-      required this.practiceDates,
+      @TimestampConverter() required this.dueDate,
+      @TimestampListConverter() required this.practiceDates,
       required this.tempo,
       required this.recentQualityOfPractice,
       required this.qualityOfMemorization});
+
+  factory _$_Measure.fromJson(Map<String, dynamic> json) =>
+      _$$_MeasureFromJson(json);
 
   @override
 
@@ -229,16 +243,18 @@ class _$_Measure implements _Measure {
   @override
 
   /// The id of the piece.
-  final UniqueKey pieceId;
+  final String pieceId;
   @override
 
   /// A DateTime that indicates when the user has to practice this
   /// measure.
+  @TimestampConverter()
   final DateTime dueDate;
   @override
 
   /// A list of datetimes which indicate when the user practiced this
   /// measure.
+  @TimestampListConverter()
   final List<DateTime> practiceDates;
   @override
 
@@ -298,17 +314,24 @@ class _$_Measure implements _Measure {
   @override
   _$MeasureCopyWith<_Measure> get copyWith =>
       __$MeasureCopyWithImpl<_Measure>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MeasureToJson(this);
+  }
 }
 
 abstract class _Measure implements Measure {
   const factory _Measure(
       {required int measureNo,
-      required UniqueKey pieceId,
-      required DateTime dueDate,
-      required List<DateTime> practiceDates,
+      required String pieceId,
+      @TimestampConverter() required DateTime dueDate,
+      @TimestampListConverter() required List<DateTime> practiceDates,
       required int? tempo,
       required int recentQualityOfPractice,
       required int qualityOfMemorization}) = _$_Measure;
+
+  factory _Measure.fromJson(Map<String, dynamic> json) = _$_Measure.fromJson;
 
   @override
 
@@ -317,16 +340,18 @@ abstract class _Measure implements Measure {
   @override
 
   /// The id of the piece.
-  UniqueKey get pieceId;
+  String get pieceId;
   @override
 
   /// A DateTime that indicates when the user has to practice this
   /// measure.
+  @TimestampConverter()
   DateTime get dueDate;
   @override
 
   /// A list of datetimes which indicate when the user practiced this
   /// measure.
+  @TimestampListConverter()
   List<DateTime> get practiceDates;
   @override
 
