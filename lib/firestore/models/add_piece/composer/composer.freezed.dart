@@ -28,7 +28,7 @@ class _$ComposerTearOff {
       @TimestampConverter() required DateTime dateOfBirth,
       @TimestampNullableConverter() required DateTime? dateOfDeath,
       @WorkListConverter() List<Work> works = const [],
-      required String numberingSystem,
+      required List<String> numberingSystem,
       String? id}) {
     return _Composer(
       firstNames: firstNames,
@@ -59,7 +59,7 @@ mixin _$Composer {
   DateTime? get dateOfDeath => throw _privateConstructorUsedError;
   @WorkListConverter()
   List<Work> get works => throw _privateConstructorUsedError;
-  String get numberingSystem => throw _privateConstructorUsedError;
+  List<String> get numberingSystem => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -78,7 +78,7 @@ abstract class $ComposerCopyWith<$Res> {
       @TimestampConverter() DateTime dateOfBirth,
       @TimestampNullableConverter() DateTime? dateOfDeath,
       @WorkListConverter() List<Work> works,
-      String numberingSystem,
+      List<String> numberingSystem,
       String? id});
 }
 
@@ -124,7 +124,7 @@ class _$ComposerCopyWithImpl<$Res> implements $ComposerCopyWith<$Res> {
       numberingSystem: numberingSystem == freezed
           ? _value.numberingSystem
           : numberingSystem // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ abstract class _$ComposerCopyWith<$Res> implements $ComposerCopyWith<$Res> {
       @TimestampConverter() DateTime dateOfBirth,
       @TimestampNullableConverter() DateTime? dateOfDeath,
       @WorkListConverter() List<Work> works,
-      String numberingSystem,
+      List<String> numberingSystem,
       String? id});
 }
 
@@ -191,7 +191,7 @@ class __$ComposerCopyWithImpl<$Res> extends _$ComposerCopyWithImpl<$Res>
       numberingSystem: numberingSystem == freezed
           ? _value.numberingSystem
           : numberingSystem // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<String>,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -230,7 +230,7 @@ class _$_Composer implements _Composer {
   @WorkListConverter()
   final List<Work> works;
   @override
-  final String numberingSystem;
+  final List<String> numberingSystem;
   @override
   final String? id;
 
@@ -286,7 +286,7 @@ abstract class _Composer implements Composer {
       @TimestampConverter() required DateTime dateOfBirth,
       @TimestampNullableConverter() required DateTime? dateOfDeath,
       @WorkListConverter() List<Work> works,
-      required String numberingSystem,
+      required List<String> numberingSystem,
       String? id}) = _$_Composer;
 
   factory _Composer.fromJson(Map<String, dynamic> json) = _$_Composer.fromJson;
@@ -305,7 +305,7 @@ abstract class _Composer implements Composer {
   @WorkListConverter()
   List<Work> get works;
   @override
-  String get numberingSystem;
+  List<String> get numberingSystem;
   @override
   String? get id;
   @override

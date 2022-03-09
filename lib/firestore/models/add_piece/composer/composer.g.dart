@@ -16,7 +16,9 @@ _$_Composer _$$_ComposerFromJson(Map<String, dynamic> json) => _$_Composer(
       works: json['works'] == null
           ? const []
           : const WorkListConverter().fromJson(json['works'] as List?),
-      numberingSystem: json['numberingSystem'] as String,
+      numberingSystem: (json['numberingSystem'] as List<dynamic>)
+          .map((e) => e as String)
+          .toList(),
       id: json['id'] as String?,
     );
 

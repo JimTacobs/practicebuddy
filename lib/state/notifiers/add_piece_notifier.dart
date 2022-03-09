@@ -81,7 +81,7 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
       Composer(
         lastName: '$lastName - Add new',
         works: [],
-        numberingSystem: '',
+        numberingSystem: [''],
         dateOfDeath: null,
         dateOfBirth: DateTime.now(),
         firstNames: '',

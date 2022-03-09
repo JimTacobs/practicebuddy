@@ -16,7 +16,7 @@ class Composer with _$Composer {
     @TimestampNullableConverter() required DateTime? dateOfDeath,
 
     @WorkListConverter() @Default([]) List<Work> works,
-    required String numberingSystem,
+    required List<String> numberingSystem,
     String? id,
   }) = _Composer;
 
