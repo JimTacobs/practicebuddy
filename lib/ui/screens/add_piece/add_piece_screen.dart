@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
@@ -14,6 +15,7 @@ class AddPieceScreen extends HookConsumerWidget {
     final _addPieceNotifier = ref.watch(addPieceProvider.notifier);
     final _addPieceState = ref.watch(addPieceProvider);
     final _formKey = GlobalKey<FormState>();
+    final _scrollController = useScrollController();
 
     return Scaffold(
       appBar: AppBar(
@@ -24,6 +26,7 @@ class AddPieceScreen extends HookConsumerWidget {
         child: Form(
           key: _formKey,
           child: SingleChildScrollView(
+            controller: _scrollController,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -59,7 +62,12 @@ class AddPieceScreen extends HookConsumerWidget {
                   },
                 ),
                 const AddPieceForm(),
-                const AddRepetitions(),
+                AddRepetitions(scrollController: _scrollController),
+                ElevatedButton(
+                    onPressed: () async {
+                      await _addPieceNotifier.addPiece();
+                    },
+                    child: Text('Complete'))
               ],
             ),
           ),

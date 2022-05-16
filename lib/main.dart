@@ -12,11 +12,11 @@ import 'ui/screens/screens.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: PracticeBuddy()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class PracticeBuddy extends StatelessWidget {
+  const PracticeBuddy({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

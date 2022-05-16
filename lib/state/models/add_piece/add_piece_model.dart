@@ -11,6 +11,12 @@ class AddPiece with _$AddPiece {
     /// Composers
     required TextEditingController composerLastNameController,
     required TextEditingController composerFirstNameController,
+    required TextEditingController dateOfBirthDayController,
+    required TextEditingController dateOfBirthMonthController,
+    required TextEditingController dateOfBirthYearController,
+    required TextEditingController dateOfDeathDayController,
+    required TextEditingController dateOfDeathMonthController,
+    required TextEditingController dateOfDeathYearController,
     DateTime? dateOfBirth,
     DateTime? dateOfDeath,
     @Default([]) List<Composer> composers,

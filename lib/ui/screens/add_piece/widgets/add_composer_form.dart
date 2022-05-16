@@ -18,13 +18,6 @@ class AddComposerForm extends HookConsumerWidget {
 
     final _theme = Theme.of(context);
 
-    final _dateOfBirthDayController = useTextEditingController();
-    final _dateOfBirthMonthController = useTextEditingController();
-    final _dateOfBirthYearController = useTextEditingController();
-    final _dateOfDeathDayController = useTextEditingController();
-    final _dateOfDeathMonthController = useTextEditingController();
-    final _dateOfDeathYearController = useTextEditingController();
-
     return Column(
       children: [
         const ComposerSuggestionField(),
@@ -47,11 +40,9 @@ class AddComposerForm extends HookConsumerWidget {
                 ),
               ),
               DateInput(
-                dayController: _dateOfBirthDayController,
-                monthController: _dateOfBirthMonthController,
-                yearController: _dateOfBirthYearController,
-                setDateCallback: (DateTime date) =>
-                    _addPieceNotifier.setBirthDate(date),
+                dayController: _addPieceState.dateOfBirthDayController,
+                monthController: _addPieceState.dateOfBirthMonthController,
+                yearController: _addPieceState.dateOfBirthYearController,
                 required: true,
               ),
               Padding(
@@ -64,11 +55,9 @@ class AddComposerForm extends HookConsumerWidget {
                 ),
               ),
               DateInput(
-                dayController: _dateOfDeathDayController,
-                monthController: _dateOfDeathMonthController,
-                yearController: _dateOfDeathYearController,
-                setDateCallback: (DateTime date) =>
-                    _addPieceNotifier.setDeathDate(date),
+                dayController: _addPieceState.dateOfDeathDayController,
+                monthController: _addPieceState.dateOfDeathMonthController,
+                yearController: _addPieceState.dateOfDeathYearController,
               ),
             ],
           ),

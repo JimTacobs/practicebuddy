@@ -12,6 +12,12 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
       : super(AddPiece(
           composerFirstNameController: TextEditingController(),
           composerLastNameController: TextEditingController(),
+          dateOfBirthDayController: TextEditingController(),
+          dateOfBirthMonthController: TextEditingController(),
+          dateOfBirthYearController: TextEditingController(),
+          dateOfDeathDayController: TextEditingController(),
+          dateOfDeathMonthController: TextEditingController(),
+          dateOfDeathYearController: TextEditingController(),
           workController: TextEditingController(),
           customNumberingSystemController: TextEditingController(),
           workNumberController: TextEditingController(),
@@ -39,7 +45,40 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
       );
 
   Future<void> addPiece() async {
-    if (state.selectedComposer == null) {}
+    if (state.selectedComposer == null) {
+      final birthDay = int.parse(state.dateOfBirthDayController.value.text);
+      final birthMonth = int.parse(state.dateOfBirthMonthController.value.text);
+      final birthYear = int.parse(state.dateOfBirthYearController.value.text);
+
+      final deathDay = int.parse(state.dateOfDeathDayController.value.text);
+      final deathMonth = int.parse(state.dateOfDeathMonthController.value.text);
+      final deathYear = int.parse(state.dateOfDeathYearController.value.text);
+
+      state = state.copyWith(
+        dateOfBirth: DateTime(birthYear, birthMonth, birthDay, 12),
+        dateOfDeath: DateTime(deathYear, deathMonth, deathDay, 12),
+      );
+
+      await _composerNamesRef.add(Composer(
+        dateOfBirth: state.dateOfBirth ?? DateTime.now(),
+        dateOfDeath: state.dateOfDeath,
+        firstNames: state.composerFirstNameController.value.text,
+        lastName: state.composerLastNameController.value.text,
+        numberingSystem:
+            state.customNumberingSystemController.value.text.trim().split(' '),
+        works: [
+
+        ],
+      ));
+
+      return;
+    }
+
+    if (state.selectedWork == null) {
+
+    }
+
+    /// Clear all controllers when done. Perhaps just rebuild this entire provider.
   }
 
   /// API calls
@@ -94,7 +133,7 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
         .removeWhere((composer) => composer.lastName.contains(' - Add new'));
   }
 
-  void selectComposer(Composer composer) {
+  Future<void> selectComposer(Composer composer) async {
     if (composer.lastName.contains('- Add new')) {
       state = state.copyWith();
       return;
@@ -102,24 +141,12 @@ class AddPieceNotifier extends StateNotifier<AddPiece> {
     state = state.copyWith(
       selectedComposer: composer,
     );
+    await getComposerWorks(composer.id!);
   }
 
   void unselectComposer() {
     state = state.copyWith(
       selectedComposer: null,
-    );
-  }
-
-  /// Composer set dates
-  void setBirthDate(DateTime date) {
-    state = state.copyWith(
-      dateOfBirth: date,
-    );
-  }
-
-  void setDeathDate(DateTime date) {
-    state = state.copyWith(
-      dateOfBirth: date,
     );
   }
 

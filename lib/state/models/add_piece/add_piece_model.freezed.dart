@@ -21,6 +21,12 @@ class _$AddPieceTearOff {
   _AddPiece call(
       {required TextEditingController composerLastNameController,
       required TextEditingController composerFirstNameController,
+      required TextEditingController dateOfBirthDayController,
+      required TextEditingController dateOfBirthMonthController,
+      required TextEditingController dateOfBirthYearController,
+      required TextEditingController dateOfDeathDayController,
+      required TextEditingController dateOfDeathMonthController,
+      required TextEditingController dateOfDeathYearController,
       DateTime? dateOfBirth,
       DateTime? dateOfDeath,
       List<Composer> composers = const [],
@@ -42,6 +48,12 @@ class _$AddPieceTearOff {
     return _AddPiece(
       composerLastNameController: composerLastNameController,
       composerFirstNameController: composerFirstNameController,
+      dateOfBirthDayController: dateOfBirthDayController,
+      dateOfBirthMonthController: dateOfBirthMonthController,
+      dateOfBirthYearController: dateOfBirthYearController,
+      dateOfDeathDayController: dateOfDeathDayController,
+      dateOfDeathMonthController: dateOfDeathMonthController,
+      dateOfDeathYearController: dateOfDeathYearController,
       dateOfBirth: dateOfBirth,
       dateOfDeath: dateOfDeath,
       composers: composers,
@@ -73,6 +85,18 @@ mixin _$AddPiece {
   TextEditingController get composerLastNameController =>
       throw _privateConstructorUsedError;
   TextEditingController get composerFirstNameController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get dateOfBirthDayController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get dateOfBirthMonthController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get dateOfBirthYearController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get dateOfDeathDayController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get dateOfDeathMonthController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get dateOfDeathYearController =>
       throw _privateConstructorUsedError;
   DateTime? get dateOfBirth => throw _privateConstructorUsedError;
   DateTime? get dateOfDeath => throw _privateConstructorUsedError;
@@ -119,6 +143,12 @@ abstract class $AddPieceCopyWith<$Res> {
   $Res call(
       {TextEditingController composerLastNameController,
       TextEditingController composerFirstNameController,
+      TextEditingController dateOfBirthDayController,
+      TextEditingController dateOfBirthMonthController,
+      TextEditingController dateOfBirthYearController,
+      TextEditingController dateOfDeathDayController,
+      TextEditingController dateOfDeathMonthController,
+      TextEditingController dateOfDeathYearController,
       DateTime? dateOfBirth,
       DateTime? dateOfDeath,
       List<Composer> composers,
@@ -155,6 +185,12 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
   $Res call({
     Object? composerLastNameController = freezed,
     Object? composerFirstNameController = freezed,
+    Object? dateOfBirthDayController = freezed,
+    Object? dateOfBirthMonthController = freezed,
+    Object? dateOfBirthYearController = freezed,
+    Object? dateOfDeathDayController = freezed,
+    Object? dateOfDeathMonthController = freezed,
+    Object? dateOfDeathYearController = freezed,
     Object? dateOfBirth = freezed,
     Object? dateOfDeath = freezed,
     Object? composers = freezed,
@@ -182,6 +218,30 @@ class _$AddPieceCopyWithImpl<$Res> implements $AddPieceCopyWith<$Res> {
       composerFirstNameController: composerFirstNameController == freezed
           ? _value.composerFirstNameController
           : composerFirstNameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfBirthDayController: dateOfBirthDayController == freezed
+          ? _value.dateOfBirthDayController
+          : dateOfBirthDayController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfBirthMonthController: dateOfBirthMonthController == freezed
+          ? _value.dateOfBirthMonthController
+          : dateOfBirthMonthController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfBirthYearController: dateOfBirthYearController == freezed
+          ? _value.dateOfBirthYearController
+          : dateOfBirthYearController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfDeathDayController: dateOfDeathDayController == freezed
+          ? _value.dateOfDeathDayController
+          : dateOfDeathDayController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfDeathMonthController: dateOfDeathMonthController == freezed
+          ? _value.dateOfDeathMonthController
+          : dateOfDeathMonthController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfDeathYearController: dateOfDeathYearController == freezed
+          ? _value.dateOfDeathYearController
+          : dateOfDeathYearController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
       dateOfBirth: dateOfBirth == freezed
           ? _value.dateOfBirth
@@ -301,6 +361,12 @@ abstract class _$AddPieceCopyWith<$Res> implements $AddPieceCopyWith<$Res> {
   $Res call(
       {TextEditingController composerLastNameController,
       TextEditingController composerFirstNameController,
+      TextEditingController dateOfBirthDayController,
+      TextEditingController dateOfBirthMonthController,
+      TextEditingController dateOfBirthYearController,
+      TextEditingController dateOfDeathDayController,
+      TextEditingController dateOfDeathMonthController,
+      TextEditingController dateOfDeathYearController,
       DateTime? dateOfBirth,
       DateTime? dateOfDeath,
       List<Composer> composers,
@@ -341,6 +407,12 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
   $Res call({
     Object? composerLastNameController = freezed,
     Object? composerFirstNameController = freezed,
+    Object? dateOfBirthDayController = freezed,
+    Object? dateOfBirthMonthController = freezed,
+    Object? dateOfBirthYearController = freezed,
+    Object? dateOfDeathDayController = freezed,
+    Object? dateOfDeathMonthController = freezed,
+    Object? dateOfDeathYearController = freezed,
     Object? dateOfBirth = freezed,
     Object? dateOfDeath = freezed,
     Object? composers = freezed,
@@ -368,6 +440,30 @@ class __$AddPieceCopyWithImpl<$Res> extends _$AddPieceCopyWithImpl<$Res>
       composerFirstNameController: composerFirstNameController == freezed
           ? _value.composerFirstNameController
           : composerFirstNameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfBirthDayController: dateOfBirthDayController == freezed
+          ? _value.dateOfBirthDayController
+          : dateOfBirthDayController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfBirthMonthController: dateOfBirthMonthController == freezed
+          ? _value.dateOfBirthMonthController
+          : dateOfBirthMonthController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfBirthYearController: dateOfBirthYearController == freezed
+          ? _value.dateOfBirthYearController
+          : dateOfBirthYearController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfDeathDayController: dateOfDeathDayController == freezed
+          ? _value.dateOfDeathDayController
+          : dateOfDeathDayController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfDeathMonthController: dateOfDeathMonthController == freezed
+          ? _value.dateOfDeathMonthController
+          : dateOfDeathMonthController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      dateOfDeathYearController: dateOfDeathYearController == freezed
+          ? _value.dateOfDeathYearController
+          : dateOfDeathYearController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
       dateOfBirth: dateOfBirth == freezed
           ? _value.dateOfBirth
@@ -452,6 +548,12 @@ class _$_AddPiece implements _AddPiece {
   const _$_AddPiece(
       {required this.composerLastNameController,
       required this.composerFirstNameController,
+      required this.dateOfBirthDayController,
+      required this.dateOfBirthMonthController,
+      required this.dateOfBirthYearController,
+      required this.dateOfDeathDayController,
+      required this.dateOfDeathMonthController,
+      required this.dateOfDeathYearController,
       this.dateOfBirth,
       this.dateOfDeath,
       this.composers = const [],
@@ -477,6 +579,18 @@ class _$_AddPiece implements _AddPiece {
   final TextEditingController composerLastNameController;
   @override
   final TextEditingController composerFirstNameController;
+  @override
+  final TextEditingController dateOfBirthDayController;
+  @override
+  final TextEditingController dateOfBirthMonthController;
+  @override
+  final TextEditingController dateOfBirthYearController;
+  @override
+  final TextEditingController dateOfDeathDayController;
+  @override
+  final TextEditingController dateOfDeathMonthController;
+  @override
+  final TextEditingController dateOfDeathYearController;
   @override
   final DateTime? dateOfBirth;
   @override
@@ -523,7 +637,7 @@ class _$_AddPiece implements _AddPiece {
 
   @override
   String toString() {
-    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, selectedComposer: $selectedComposer, workController: $workController, customNumberingSystemController: $customNumberingSystemController, workNumberController: $workNumberController, selectedWork: $selectedWork, pieceController: $pieceController, pieceNumberController: $pieceNumberController, pieceTempoController: $pieceTempoController, pieceLengthController: $pieceLengthController, pieceRepetitionFromController: $pieceRepetitionFromController, pieceRepetitionToController: $pieceRepetitionToController, pieceRepetitionSkipController: $pieceRepetitionSkipController, selectedPiece: $selectedPiece, containsRepetitions: $containsRepetitions, repetitions: $repetitions)';
+    return 'AddPiece(composerLastNameController: $composerLastNameController, composerFirstNameController: $composerFirstNameController, dateOfBirthDayController: $dateOfBirthDayController, dateOfBirthMonthController: $dateOfBirthMonthController, dateOfBirthYearController: $dateOfBirthYearController, dateOfDeathDayController: $dateOfDeathDayController, dateOfDeathMonthController: $dateOfDeathMonthController, dateOfDeathYearController: $dateOfDeathYearController, dateOfBirth: $dateOfBirth, dateOfDeath: $dateOfDeath, composers: $composers, selectedComposer: $selectedComposer, workController: $workController, customNumberingSystemController: $customNumberingSystemController, workNumberController: $workNumberController, selectedWork: $selectedWork, pieceController: $pieceController, pieceNumberController: $pieceNumberController, pieceTempoController: $pieceTempoController, pieceLengthController: $pieceLengthController, pieceRepetitionFromController: $pieceRepetitionFromController, pieceRepetitionToController: $pieceRepetitionToController, pieceRepetitionSkipController: $pieceRepetitionSkipController, selectedPiece: $selectedPiece, containsRepetitions: $containsRepetitions, repetitions: $repetitions)';
   }
 
   @override
@@ -536,6 +650,18 @@ class _$_AddPiece implements _AddPiece {
             const DeepCollectionEquality().equals(
                 other.composerFirstNameController,
                 composerFirstNameController) &&
+            const DeepCollectionEquality().equals(
+                other.dateOfBirthDayController, dateOfBirthDayController) &&
+            const DeepCollectionEquality().equals(
+                other.dateOfBirthMonthController, dateOfBirthMonthController) &&
+            const DeepCollectionEquality().equals(
+                other.dateOfBirthYearController, dateOfBirthYearController) &&
+            const DeepCollectionEquality().equals(
+                other.dateOfDeathDayController, dateOfDeathDayController) &&
+            const DeepCollectionEquality().equals(
+                other.dateOfDeathMonthController, dateOfDeathMonthController) &&
+            const DeepCollectionEquality().equals(
+                other.dateOfDeathYearController, dateOfDeathYearController) &&
             const DeepCollectionEquality()
                 .equals(other.dateOfBirth, dateOfBirth) &&
             const DeepCollectionEquality()
@@ -582,6 +708,12 @@ class _$_AddPiece implements _AddPiece {
         runtimeType,
         const DeepCollectionEquality().hash(composerLastNameController),
         const DeepCollectionEquality().hash(composerFirstNameController),
+        const DeepCollectionEquality().hash(dateOfBirthDayController),
+        const DeepCollectionEquality().hash(dateOfBirthMonthController),
+        const DeepCollectionEquality().hash(dateOfBirthYearController),
+        const DeepCollectionEquality().hash(dateOfDeathDayController),
+        const DeepCollectionEquality().hash(dateOfDeathMonthController),
+        const DeepCollectionEquality().hash(dateOfDeathYearController),
         const DeepCollectionEquality().hash(dateOfBirth),
         const DeepCollectionEquality().hash(dateOfDeath),
         const DeepCollectionEquality().hash(composers),
@@ -612,6 +744,12 @@ abstract class _AddPiece implements AddPiece {
   const factory _AddPiece(
       {required TextEditingController composerLastNameController,
       required TextEditingController composerFirstNameController,
+      required TextEditingController dateOfBirthDayController,
+      required TextEditingController dateOfBirthMonthController,
+      required TextEditingController dateOfBirthYearController,
+      required TextEditingController dateOfDeathDayController,
+      required TextEditingController dateOfDeathMonthController,
+      required TextEditingController dateOfDeathYearController,
       DateTime? dateOfBirth,
       DateTime? dateOfDeath,
       List<Composer> composers,
@@ -637,6 +775,18 @@ abstract class _AddPiece implements AddPiece {
   TextEditingController get composerLastNameController;
   @override
   TextEditingController get composerFirstNameController;
+  @override
+  TextEditingController get dateOfBirthDayController;
+  @override
+  TextEditingController get dateOfBirthMonthController;
+  @override
+  TextEditingController get dateOfBirthYearController;
+  @override
+  TextEditingController get dateOfDeathDayController;
+  @override
+  TextEditingController get dateOfDeathMonthController;
+  @override
+  TextEditingController get dateOfDeathYearController;
   @override
   DateTime? get dateOfBirth;
   @override

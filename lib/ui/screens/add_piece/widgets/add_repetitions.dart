@@ -7,8 +7,11 @@ import '../../../shared/shared_widgets.dart';
 
 class AddRepetitions extends HookConsumerWidget {
   const AddRepetitions({
+    required this.scrollController,
     Key? key,
   }) : super(key: key);
+
+  final ScrollController scrollController;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,10 +24,18 @@ class AddRepetitions extends HookConsumerWidget {
         Row(
           children: [
             Checkbox(
-              value: _addPieceState.containsRepetitions,
-              onChanged: (val) =>
-                  _addPieceNotifier.toggleRepetitions(val ?? false),
-            ),
+                value: _addPieceState.containsRepetitions,
+                onChanged: (val) {
+                  Future.delayed(
+                    const Duration(milliseconds: 100),
+                    () => scrollController.animateTo(
+                      scrollController.position.maxScrollExtent,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.fastOutSlowIn,
+                    ),
+                  );
+                  _addPieceNotifier.toggleRepetitions(val ?? false);
+                }),
             Padding(
               padding: const EdgeInsets.only(left: 12.0),
               child: Text('Repetitions'),
